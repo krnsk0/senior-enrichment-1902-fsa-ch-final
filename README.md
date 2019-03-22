@@ -60,16 +60,6 @@ Take a look in the wireframes folder as a reference for how your front-end _coul
 
 ## Other Important Info
 
-### How to test functionality without a frontend
-- GET: use your browser
-- POST / PUT / DELETE : 
- - CLI (command line interface) with `curl`
-   - e.g. `curl -H "Content-Type: application/json" -X POST -d '{"username":"kate","password":"1234"}' http://localhost:3000/api/login`
-   - `-H`: headers. `-X`: verb. `-d`: data (must be of the type specified in headers). http://[address]:[port]/[route_path]
- - [Postman](https://www.getpostman.com/)
-   ![](https://www.dropbox.com/s/4fk3b90cd0i1a5y/postman_post.png?raw=true)
-- Databases: use Sequelize in your routes and see if you are receiving what you expect
-
 ### The Tests
 
 Tier One has tests provided. These tests are meant to guide your development by directing your attention to the appropriate places. We strongly encourage you to start by getting these to pass. However, **your score does not depend on how many of these tests pass, only on the number of completed requirements (plus the rubric score).**
