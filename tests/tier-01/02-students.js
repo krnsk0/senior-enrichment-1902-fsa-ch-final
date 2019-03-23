@@ -120,8 +120,13 @@ describe('Tier One: Students', () => {
       Student.findAll = studentFindAll;
     });
 
-    xit('*** GET /api/students responds with all students', async () => {
-      throw new Error('replace this error with your own test');
+    it('GET /api/students responds with all students', async () => {
+      const response = await agent.get('/api/students').expect(200);
+      expect(response.body).to.deep.equal([
+        { id: 1, firstName: 'Mae', lastName: 'Jemison' },
+        { id: 2, firstName: 'Sally', lastName: 'Ride' }
+      ]);
+      expect(Student.findAll.calledOnce).to.be.equal(true);
     });
   });
 

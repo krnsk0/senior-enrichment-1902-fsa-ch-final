@@ -95,7 +95,7 @@ const lastNames = [
   'Legosier'
 ];
 
-const planetImageIndices = shuffle(Array.from({ length: 10 }, (_, i) => i));
+const planetImageIndices = shuffle(Array.from({ length: 10 }, (_, i) => i + 1));
 
 // thanks to http://fillerama.io/
 const sentences = shuffle([
@@ -131,7 +131,7 @@ const randomCampusFactory = () => {
   const description = `${sentences.pop()} ${sentences.pop()}`;
   return {
     name: `${campusNamesFirst.pop()} ${campusNamesSecond.pop()} ${campusNamesThird.pop()}`,
-    imageUrl: `/planets/${randomInt(10) + 1}.jpg`,
+    imageUrl: `/planets/${planetImageIndices.pop()}.png`,
     address,
     description
   };

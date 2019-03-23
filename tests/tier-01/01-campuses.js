@@ -141,7 +141,7 @@ describe('Tier One: Campuses', () => {
       Campus.findAll = campusFindAll;
     });
 
-    xit('GET /api/campuses responds with all campuses', async () => {
+    it('GET /api/campuses responds with all campuses', async () => {
       const response = await agent.get('/api/campuses').expect(200);
       expect(response.body).to.deep.equal([
         { id: 1, name: 'Mars Academy', imageUrl: '/images/mars.png' },

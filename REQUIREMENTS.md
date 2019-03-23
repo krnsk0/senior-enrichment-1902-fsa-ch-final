@@ -18,8 +18,8 @@ The requirements below are broken into separate **tiers**, which model the way w
 
 #### Backend
 
-- [ ] Write a route to serve up all students
-- [ ] Write a route to serve up all campuses
+- [x] Write a route to serve up all students
+- [x] Write a route to serve up all campuses
 
 - [x] Write a `campuses` model with the following information:
   - [x] name - not empty or null
@@ -44,7 +44,7 @@ The requirements below are broken into separate **tiers**, which model the way w
 - [ ] React (AllStudents): renders "No Students" if passed an empty array of students
 - [ ] Redux (campuses): returns the initial state by default
 - [ ] Redux (students): returns the initial state by default
-- [ ] Express: GET /api/students responds with all students
+- [x] Express: GET /api/students responds with all students
 - [x] Sequelize (Campus): requires name and address
 - [x] Sequelize (Student): email must be a valid email
 - [ ] Navigation: navbar to navigate to home, campuses, students
