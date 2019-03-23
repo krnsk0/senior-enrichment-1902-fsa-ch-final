@@ -81,7 +81,7 @@ describe('Tier One: Final Touches', () => {
     });
   });
 
-  describe.only('Seed file', () => {
+  describe('Seed file', () => {
     beforeEach(seed);
 
     it('populates the database with at least three campuses', async () => {
