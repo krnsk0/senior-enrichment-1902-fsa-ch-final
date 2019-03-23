@@ -131,7 +131,7 @@ const randomCampusFactory = () => {
   const description = `${sentences.pop()} ${sentences.pop()}`;
   return {
     name: `${campusNamesFirst.pop()} ${campusNamesSecond.pop()} ${campusNamesThird.pop()}`,
-    imageUrl: `/planet-images/${randomInt(10) + 1}.jpg`,
+    imageUrl: `/planets/${randomInt(10) + 1}.jpg`,
     address,
     description
   };
