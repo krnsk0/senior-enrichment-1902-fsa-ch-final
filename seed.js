@@ -169,7 +169,6 @@ const seed = async () => {
     await db.sync({ force: true });
     await Campus.bulkCreate(randomCampusArray, { validate: true });
     await Student.bulkCreate(randomStudentArray, { validate: true });
-    db.close();
   } catch (err) {
     console.log(red(err));
   }
