@@ -21,20 +21,21 @@ The requirements below are broken into separate **tiers**, which model the way w
 - [ ] Write a route to serve up all students
 - [ ] Write a route to serve up all campuses
 
-- [ ] Write a `campuses` model with the following information:
-  - [ ] name - not empty or null
-  - [ ] imageUrl - with a default value
-  - [ ] address - not empty or null
-  - [ ] description - extremely large text
-- [ ] Write a `students` model with the following information:
-  - [ ] firstName - not empty or null
-  - [ ] lastName - not empty or null
-  - [ ] email - not empty or null; must be a valid email
-  - [ ] imageUrl - with a default value
-  - [ ] gpa - decimal between 0.0 and 4.0
-- [ ] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
+- [x] Write a `campuses` model with the following information:
+  - [x] name - not empty or null
+  - [x] imageUrl - with a default value
+  - [x] address - not empty or null
+  - [x] description - extremely large text
+- [x] Write a `students` model with the following information:
+  - [x] firstName - not empty or null
+  - [x] lastName - not empty or null
+  - [x] email - not empty or null; must be a valid email
+  - [x] imageUrl - with a default value
+  - [x] gpa - decimal between 0.0 and 4.0
+- [x] Students may be associated with at most one campus. Likewise, campuses may be associated with many students
 
 #### Seed
+
 - [ ] Running the seed file creates campuses and students for demonstration purposes
 
 #### Testing
@@ -93,6 +94,7 @@ Congrats! You have completed your second vertical slice! Make sure to `commit -m
 - [ ] Write a component to display a form for adding a new campus that contains inputs for _at least_ the name and address.
 - [ ] Display this component EITHER as part of the all-campuses view, or as its own view
 - [ ] Submitting the form with a valid name/address should:
+
   - [ ] Make an AJAX request that causes the new campus to be persisted in the database
   - [ ] Add the new campus to the list of campuses without needing to refresh the page
 
@@ -119,6 +121,7 @@ Congrats! You have completed your third vertical slice! Make sure to `commit -m 
 
 - [ ] In the all-campuses view, include an `X` button next to each campus
 - [ ] Clicking the `X` button should:
+
   - [ ] Make an AJAX request that causes that campus to be removed from database
   - [ ] Remove the campus from the list of campuses without needing to refresh the page
 
@@ -157,6 +160,7 @@ Congrats! You have completed your fourth vertical slice! Make sure to `commit -m
 - [ ] Write a component to display a form updating _at least_ a campus's name and address
 - [ ] Display this component as part of the single-campus view
 - Submitting the form with a valid name/address should:
+
   - [ ] Make an AJAX request that causes that campus to be updated in the database
   - [ ] Update the campus in the current view without needing to refresh the page
 
