@@ -4,7 +4,7 @@ const db = require('./database');
 const Campus = db.define('campuses', {
   name: {
     type: Sequelize.STRING,
-    // allowNull: false,
+    allowNull: false,
     validate: {
       notEmpty: true
     }

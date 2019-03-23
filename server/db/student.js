@@ -29,7 +29,17 @@ const Student = db.define('students', {
     defaultValue: '/images/placeholder.png' //TODO
   },
   gpa: {
-    type: Sequelize.FLOAT
+    type: Sequelize.FLOAT,
+    validate: {
+      isGPA: function(value) {
+        if (value > 4) {
+          throw new Error('Validation max on gpa');
+        }
+        if (value < 0) {
+          throw new Error('Validation min on gpa');
+        }
+      }
+    }
   }
 });
 

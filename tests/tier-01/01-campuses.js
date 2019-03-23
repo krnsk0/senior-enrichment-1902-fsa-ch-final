@@ -171,7 +171,7 @@ describe('Tier One: Campuses', () => {
       );
     });
 
-    it.only('requires name and address', async () => {
+    it('requires name and address', async () => {
       const campus = Campus.build({ address: 'an adddress' });
       try {
         await campus.validate();
