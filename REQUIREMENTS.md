@@ -45,8 +45,8 @@ The requirements below are broken into separate **tiers**, which model the way w
 - [ ] Redux (campuses): returns the initial state by default
 - [ ] Redux (students): returns the initial state by default
 - [ ] Express: GET /api/students responds with all students
-- [ ] Sequelize (Campus): requires name and address
-- [ ] Sequelize (Student): email must be a valid email
+- [x] Sequelize (Campus): requires name and address
+- [x] Sequelize (Student): email must be a valid email
 - [ ] Navigation: navbar to navigate to home, campuses, students
 - [ ] Seed file: creates exactly one campus that has no students
 - [ ] Seed file: creates exactly one student that is not enrolled in a campus
