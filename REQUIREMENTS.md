@@ -36,7 +36,7 @@ The requirements below are broken into separate **tiers**, which model the way w
 
 #### Seed
 
-- [ ] Running the seed file creates campuses and students for demonstration purposes
+- [x] Running the seed file creates campuses and students for demonstration purposes
 
 #### Testing
 
