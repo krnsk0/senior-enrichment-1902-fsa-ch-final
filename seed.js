@@ -3,8 +3,17 @@ const { db } = require('./server/db');
 const Campus = require('./server/db/campus');
 const Student = require('./server/db/student');
 
-// helpers for randomCampusFactory
-const campusNamesFirst = [
+// shuffle using fisher-yates
+// some lists shuffled to prevent repeat data
+const shuffle = array => {
+  for (let i = array.length - 1; i > 0; i -= 1) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
+
+const campusNamesFirst = shuffle([
   'Omicron',
   'Poseidon',
   'Alpha',
@@ -15,8 +24,9 @@ const campusNamesFirst = [
   'Antaeus',
   'Xian',
   'Florian'
-];
-const campusNamesSecond = [
+]);
+
+const campusNamesSecond = shuffle([
   'Centurion',
   'Zeconis',
   'Valissian',
@@ -27,19 +37,38 @@ const campusNamesSecond = [
   'Hephaestus',
   'Argosa',
   'Tiberius'
-];
-const addressParts = [
+]);
+
+const campusNamesThird = shuffle([
+  '',
+  '',
+  '',
+  '',
+  '',
+  '',
+  'IV',
+  'X',
+  'Z',
+  'A',
+  'B',
+  'III',
+  'I',
+  'II',
+  'V',
+  '6'
+]);
+const addressParts = shuffle([
   'Orion Nebula',
   'Ring Nebula',
   'Oort Cloud',
   'Sirius A',
-  ' Sirius B',
+  'Sirius B',
   'M80',
   'Pleadies',
   'Whirlpool Galaxy',
   'Galactic Filament 842.B',
   'Abel 901/902 Supercluster'
-];
+]);
 const firstNames = [
   'Jarvis',
   'Debora',
@@ -65,8 +94,11 @@ const lastNames = [
   'Wollver',
   'Legosier'
 ];
+
+const planetImageIndices = shuffle(Array.from({ length: 10 }, (_, i) => i));
+
 // thanks to http://fillerama.io/
-const sentences = [
+const sentences = shuffle([
   "We'll go deliver this crate like professionals, and then we'll go home.",
   'In your face, Gandhi!',
   "Fry, you can't just sit here in the dark listening to classical music.",
@@ -76,26 +108,30 @@ const sentences = [
   'Mrs. Krabappel and Principal Skinner were in the closet making babies and I saw one of the babies and then the baby looked at me.',
   "There's only one man I've ever called a coward, and that's Brian Doyle Murray.",
   "There's so many poorly chosen words in that sentence.",
-  'Hokey religions and ancient weapons are no match for a good blaster at your side, kid.'
-];
+  'Hokey religions and ancient weapons are no match for a good blaster at your side, kid.',
+  "Bad news. Andy Griffith turned us down. He didn't like his trailer.",
+  "I hear the jury's still out on science.I care deeply for nature.",
+  "I'm not the monster he wants me to be. So I'm neither man nor beast. I'm something new entirely. With my own set of rules.",
+  "All I want is to be a monkey of moderate intelligence who wears a suit. That's why I'm transferring to business school!",
+  "Don't shoot fire stick in space canoe! Cause explosive decompression!",
+  'Goodbye, cruel world. Goodbye, cruel lamp. Goodbye, cruel velvet drapes, lined with what would appear to be some sort of cruel muslin and the cute little pom-pom curtain pull cords. Cruel though they may be... ',
+  'This is the greatest case of false advertising I\'ve seen since I sued the movie "The Never Ending Story."',
+  'Kids, we need to talk for a moment about Krusty Brand Chew Goo Gum Like Substance.',
+  'Send a distress signal, and inform the Senate that all on board were killed.',
+  'Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you.'
+]);
 
-const randomIndex = length => {
+const randomInt = length => {
   return Math.floor(Math.random() * length);
 };
 
 // creates a campus object
 const randomCampusFactory = () => {
-  const campusFName = campusNamesFirst[randomIndex(10)];
-  const campusLName = campusNamesSecond[randomIndex(10)];
-  const address = `${randomIndex(100)}.${randomIndex(1000)} ${
-    addressParts[randomIndex(10)]
-  }`;
-  const description = `${sentences[randomIndex(10)]} ${
-    sentences[randomIndex(10)]
-  } ${sentences[randomIndex(10)]}`;
+  const address = `${randomInt(100)}.${randomInt(1000)} ${addressParts.pop()}`;
+  const description = `${sentences.pop()} ${sentences.pop()}`;
   return {
-    name: `${campusFName} ${campusLName}`,
-    imageUrl: `/planet-images/${randomIndex(10) + 1}.jpg`,
+    name: `${campusNamesFirst.pop()} ${campusNamesSecond.pop()} ${campusNamesThird.pop()}`,
+    imageUrl: `/planet-images/${randomInt(10) + 1}.jpg`,
     address,
     description
   };
@@ -103,8 +139,8 @@ const randomCampusFactory = () => {
 
 // creates a student object assigned to the provided campus id for passing into the db
 const randomStudentFactory = (campusId = null) => {
-  const firstName = firstNames[randomIndex(10)];
-  const lastName = lastNames[randomIndex(10)];
+  const firstName = firstNames[randomInt(10)];
+  const lastName = lastNames[randomInt(10)];
   return {
     firstName,
     lastName,
@@ -115,13 +151,13 @@ const randomStudentFactory = (campusId = null) => {
   };
 };
 
-// Build an array of six campuses. These will have ids 0 through 5
-const randomCampusArray = Array.from({ length: 6 }, () =>
+// Build an array of ten campuses. These will have ids 0 through 9
+const randomCampusArray = Array.from({ length: 10 }, () =>
   randomCampusFactory());
 
-// Build an array of fifty students, cycling through each campus 0 through 4. Campus index 5 will have no students.
-const randomStudentArray = Array.from({ length: 50 }, (_, i) =>
-  randomStudentFactory((i % 5) + 1));
+// Build an array of 90 students, cycling through each campus 0 through 9. Campus index 9 will have no students.
+const randomStudentArray = Array.from({ length: 90 }, (_, i) =>
+  randomStudentFactory((i % 9) + 1));
 
 // create one student with no campus and add to array
 const studentWithNoCampus = randomStudentFactory();
