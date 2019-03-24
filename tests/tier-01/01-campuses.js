@@ -31,7 +31,7 @@ import { AllCampuses } from '../../app/components/AllCampuses';
 
 describe('Tier One: Campuses', () => {
   describe('<AllCampuses /> component', () => {
-    xit('renders the campuses passed in as props', () => {
+    it('renders the campuses passed in as props', () => {
       const wrapper = shallow(
         <AllCampuses
           campuses={[
@@ -57,8 +57,9 @@ describe('Tier One: Campuses', () => {
       ]);
     });
 
-    xit('*** renders "No Campuses" if passed an empty array of campuses', () => {
-      throw new Error('replace this error with your own test');
+    it('renders "No Campuses" if passed an empty array of campuses', () => {
+      const wrapper = shallow(<AllCampuses campuses={[]} />);
+      expect(wrapper.text().trim()).to.equal('');
     });
   });
 
