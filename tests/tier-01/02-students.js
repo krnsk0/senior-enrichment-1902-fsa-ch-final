@@ -31,7 +31,7 @@ import { AllStudents } from '../../app/components/AllStudents';
 
 describe('Tier One: Students', () => {
   describe('<AllStudents /> component', () => {
-    xit('renders the students passed in as props', () => {
+    it('renders the students passed in as props', () => {
       const wrapper = shallow(
         <AllStudents
           students={[
@@ -44,8 +44,9 @@ describe('Tier One: Students', () => {
       expect(wrapper.text()).to.include('Sally Ride');
     });
 
-    xit('*** renders "No Students" if passed an empty array of students', () => {
-      throw new Error('replace this error with your own test');
+    it('*** renders "No Students" if passed an empty array of students', () => {
+      const wrapper = shallow(<AllStudents students={[]} />);
+      expect(wrapper.text().trim()).to.equal('No Students');
     });
   });
 

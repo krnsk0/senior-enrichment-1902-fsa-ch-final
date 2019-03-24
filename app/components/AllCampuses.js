@@ -3,14 +3,16 @@ import React from 'react';
 export const AllCampuses = props => {
   return (
     <div>
-      {props.campuses.map(c => {
-        return (
-          <div key={c.id}>
-            <h4>{c.name}</h4>
-            <img src={c.imageUrl} />
-          </div>
-        );
-      })}
+      {props.campuses.length
+        ? props.campuses.map(c => {
+            return (
+              <div key={c.id}>
+                <h4>{c.name}</h4>
+                <img src={c.imageUrl} />
+              </div>
+            );
+          })
+        : 'No Campuses'}
     </div>
   );
 };

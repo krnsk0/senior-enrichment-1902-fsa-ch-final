@@ -59,7 +59,7 @@ describe('Tier One: Campuses', () => {
 
     it('renders "No Campuses" if passed an empty array of campuses', () => {
       const wrapper = shallow(<AllCampuses campuses={[]} />);
-      expect(wrapper.text().trim()).to.equal('');
+      expect(wrapper.text().trim()).to.equal('No Campuses');
     });
   });
 
