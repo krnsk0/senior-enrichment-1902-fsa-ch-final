@@ -8,10 +8,10 @@ The requirements below are broken into separate **tiers**, which model the way w
 
 #### Frontend
 
-- [ ] Write a campuses sub-reducer to manage campuses in your Redux store
-- [ ] Write a students sub-reducer to manage students in your Redux store
-- [ ] Write a component to display a list of all campuses (at least their names and images)
-- [ ] Write a component to display a list of all students (at least their names)
+- [x] Write a campuses sub-reducer to manage campuses in your Redux store
+- [x] Write a students sub-reducer to manage students in your Redux store
+- [x] Write a component to display a list of all campuses (at least their names and images)
+- [x] Write a component to display a list of all students (at least their names)
 - [ ] Display the all-campuses component when the url matches `/campuses`
 - [ ] Display the all-students component when the url matches `/students`
 - [ ] Add a links to the navbar that can be used to navigate to the all-campuses view and the all-students view
@@ -42,8 +42,8 @@ The requirements below are broken into separate **tiers**, which model the way w
 
 - [x] React (AllCampuses): renders "No Campuses" if passed an empty array of campuses
 - [x] React (AllStudents): renders "No Students" if passed an empty array of students
-- [ ] Redux (campuses): returns the initial state by default
-- [ ] Redux (students): returns the initial state by default
+- [x] Redux (campuses): returns the initial state by default
+- [x] Redux (students): returns the initial state by default
 - [x] Express: GET /api/students responds with all students
 - [x] Sequelize (Campus): requires name and address
 - [x] Sequelize (Student): email must be a valid email
