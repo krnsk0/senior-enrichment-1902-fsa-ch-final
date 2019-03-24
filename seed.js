@@ -110,7 +110,7 @@ const sentences = shuffle([
   "There's so many poorly chosen words in that sentence.",
   'Hokey religions and ancient weapons are no match for a good blaster at your side, kid.',
   "Bad news. Andy Griffith turned us down. He didn't like his trailer.",
-  "I hear the jury's still out on science.I care deeply for nature.",
+  "I hear the jury's still out on science. I care deeply for nature.",
   "I'm not the monster he wants me to be. So I'm neither man nor beast. I'm something new entirely. With my own set of rules.",
   "All I want is to be a monkey of moderate intelligence who wears a suit. That's why I'm transferring to business school!",
   "Don't shoot fire stick in space canoe! Cause explosive decompression!",
@@ -130,14 +130,14 @@ const randomCampusFactory = () => {
   const address = `${randomInt(100)}.${randomInt(1000)} ${addressParts.pop()}`;
   const description = `${sentences.pop()} ${sentences.pop()}`;
   return {
-    name: `${campusNamesFirst.pop()} ${campusNamesSecond.pop()} ${campusNamesThird.pop()}`,
+    name: `${campusNamesFirst.pop()} ${campusNamesSecond.pop()} ${campusNamesThird.pop()}`.trim(),
     imageUrl: `/planets/${planetImageIndices.pop()}.png`,
     address,
     description
   };
 };
 
-// creates a student object assigned to the provided campus id for passing into the db
+// creates a student object assigned to the provided campus id
 const randomStudentFactory = (campusId = null) => {
   const firstName = firstNames[randomInt(10)];
   const lastName = lastNames[randomInt(10)];
@@ -155,7 +155,8 @@ const randomStudentFactory = (campusId = null) => {
 const randomCampusArray = Array.from({ length: 10 }, () =>
   randomCampusFactory());
 
-// Build an array of 90 students, cycling through each campus 0 through 9. Campus index 9 will have no students.
+// Build an array of 90 students, cycling through each campus 0 through 9.
+// Campus index 9 will have no students.
 const randomStudentArray = Array.from({ length: 90 }, (_, i) =>
   randomStudentFactory((i % 9) + 1));
 

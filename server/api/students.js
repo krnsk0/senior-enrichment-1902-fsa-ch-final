@@ -12,4 +12,13 @@ router.use('/', async (req, res, next) => {
   }
 });
 
+router.use('/:studentId', async (req, res, next) => {
+  try {
+    const oneStudent = await Student.findById(req.params.studentId);
+    res.json(oneStudent);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
