@@ -130,7 +130,7 @@ describe('Tier One: Final Touches', () => {
       rrd.BrowserRouter.restore();
     });
 
-    xit('initializes campuses and students from the server when the app first loads', async () => {
+    it('initializes campuses and students from the server when the app first loads', async () => {
       const reduxStateBeforeMount = store.getState();
       expect(reduxStateBeforeMount.campuses).to.deep.equal([]);
       expect(reduxStateBeforeMount.students).to.deep.equal([]);
