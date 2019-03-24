@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 export const AllStudents = props => {
   return (
@@ -18,7 +19,17 @@ export const AllStudents = props => {
   );
 };
 
-// Currently, we're just exporting the component as-is. When we're ready to
-// hook it up to the redux store, we'll export the connected component by default:
-// export default connect(mapState, mapDispatch)(AllStudents)
-export default AllStudents;
+const mapState = state => {
+  return {
+    students: state.students
+  };
+};
+
+const mapDispatch = dispatch => {
+  return {};
+};
+
+export default connect(
+  mapState,
+  mapDispatch
+)(AllStudents);

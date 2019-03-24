@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchStudents } from '../redux/students';
 import { fetchCampuses } from '../redux/campuses';
+import { Route } from 'react-router-dom';
+import AllStudents from './AllStudents';
+import AllCampuses from './AllCampuses';
 
 class disconnectedRoot extends React.Component {
   componentDidMount() {
@@ -13,8 +16,8 @@ class disconnectedRoot extends React.Component {
       <div>
         <nav>Welcome!</nav>
         <main>
-          <h1>Welcome to the Margaret Hamilton Academy of JavaScript!</h1>
-          <p>This seems like a nice place to get started with some Routes!</p>
+          <Route exact path="/campuses" component={AllCampuses} />
+          <Route exact path="/students" component={AllStudents} />
         </main>
       </div>
     );

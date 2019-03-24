@@ -52,7 +52,7 @@ describe('Tier One: Final Touches', () => {
       rrd.BrowserRouter.restore();
     });
 
-    xit('renders <AllCampuses /> at /campuses', () => {
+    it('renders <AllCampuses /> at /campuses', () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/campuses']}>
@@ -64,7 +64,7 @@ describe('Tier One: Final Touches', () => {
       expect(wrapper.find(AllStudents)).to.have.length(0);
     });
 
-    xit('renders <AllStudents /> at /students', () => {
+    it('renders <AllStudents /> at /students', () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/students']}>
