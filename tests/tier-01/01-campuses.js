@@ -75,14 +75,14 @@ describe('Tier One: Campuses', () => {
         { id: 2, name: 'Jupiter Jumpstart', imageUrl: '/images/jupiter.jpeg' }
       ];
 
-      xit('setCampuses action creator', () => {
+      it('setCampuses action creator', () => {
         expect(setCampuses(campuses)).to.deep.equal({
           type: 'SET_CAMPUSES',
           campuses
         });
       });
 
-      xit('fetchCampuses thunk creator', async () => {
+      it('fetchCampuses thunk creator', async () => {
         mockAxios.onGet('/api/campuses').replyOnce(200, campuses);
         await fakeStore.dispatch(fetchCampuses());
         const actions = fakeStore.getActions();

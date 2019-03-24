@@ -44,7 +44,7 @@ describe('Tier One: Students', () => {
       expect(wrapper.text()).to.include('Sally Ride');
     });
 
-    it('*** renders "No Students" if passed an empty array of students', () => {
+    it('renders "No Students" if passed an empty array of students', () => {
       const wrapper = shallow(<AllStudents students={[]} />);
       expect(wrapper.text().trim()).to.equal('No Students');
     });
@@ -62,14 +62,14 @@ describe('Tier One: Students', () => {
         { id: 2, firstName: 'Sally', lastName: 'Ride' }
       ];
 
-      xit('setStudents action creator', () => {
+      it('setStudents action creator', () => {
         expect(setStudents(students)).to.deep.equal({
           type: 'SET_STUDENTS',
           students
         });
       });
 
-      xit('fetchStudents thunk creator', async () => {
+      it('fetchStudents thunk creator', async () => {
         mockAxios.onGet('/api/students').replyOnce(200, students);
         await fakeStore.dispatch(fetchStudents());
         const actions = fakeStore.getActions();
