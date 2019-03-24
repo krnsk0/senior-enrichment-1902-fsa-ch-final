@@ -84,11 +84,12 @@ describe('Tier One: Students', () => {
         testStore = createStore(rootReducer);
       });
 
-      xit('*** returns the initial state by default', () => {
-        throw new Error('replace this error with your own test');
+      it('returns the initial state by default', () => {
+        const state = testStore.getState();
+        expect(state).to.be.deep.equal({ students: [], campuses: [] });
       });
 
-      xit('reduces on SET_STUDENTS action', () => {
+      it('reduces on SET_STUDENTS action', () => {
         const students = [
           { id: 1, firstName: 'Mae', lastName: 'Jemison' },
           { id: 2, firstName: 'Sally', lastName: 'Ride' }

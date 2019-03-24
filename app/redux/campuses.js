@@ -25,7 +25,7 @@ export const fetchCampuses = () => {
 
 // reducer
 export const campuses = (state = [], action) => {
-  if (state.type === SET_CAMPUSES) {
+  if (action.type === SET_CAMPUSES) {
     return action.campuses;
   } else {
     return state;
