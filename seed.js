@@ -95,6 +95,7 @@ const lastNames = [
   'Legosier'
 ];
 
+// thanks to https://www.allegro.cc/iotd/view/2005-08-24
 const planetImageIndices = shuffle(Array.from({ length: 10 }, (_, i) => i + 1));
 
 // thanks to http://fillerama.io/
