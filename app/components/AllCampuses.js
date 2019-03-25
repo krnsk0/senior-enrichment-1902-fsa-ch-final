@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export const AllCampuses = props => {
   return (
@@ -8,8 +9,10 @@ export const AllCampuses = props => {
         ? props.campuses.map(c => {
             return (
               <div key={c.id}>
-                <h4>{c.name}</h4>
-                <img src={c.imageUrl} />
+                <Link to={`/campuses/${c.id}`}>
+                  <h4>{c.name}</h4>
+                  <img src={c.imageUrl} />
+                </Link>
               </div>
             );
           })

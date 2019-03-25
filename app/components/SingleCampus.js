@@ -4,7 +4,8 @@ import { fetchSingleCampus } from '../redux/selectedCampus';
 
 class disconnectedSingleCampus extends React.Component {
   componentDidMount() {
-    this.props.fetchSingleCampus(1);
+    const { campusId } = this.props.match.params;
+    this.props.fetchSingleCampus(campusId);
   }
 
   render() {
@@ -12,12 +13,16 @@ class disconnectedSingleCampus extends React.Component {
     return (
       <div>
         <div>{campus.name}</div>
+        <br />
         <img src={campus.imageUrl} />
-        <div>Adress: {campus.address}</div>
+        <br />
+        <div>Address: {campus.address}</div>
+        <br />
         <div>Descritpion: {campus.description}</div>
+        <br />
         <div>Students:</div>
         {campus.students.length === 0
-          ? 'No students'
+          ? 'No students assigned to this campus'
           : campus.students.map(student => {
               const studentName = student.firstName + ' ' + student.lastName;
               return <div key={student.id}>{studentName}</div>;
