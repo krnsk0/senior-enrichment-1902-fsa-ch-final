@@ -11,18 +11,24 @@ export const AllCampuses = props => {
               <div key={c.id} className="campus-card">
                 <Link to={`/campuses/${c.id}`}>
                   <div className="campus-card-label">{c.name}</div>
+                  <img className="campus-image" src={c.imageUrl} />
                 </Link>
                 <div className="campus-buttons-container">
                   <span>
-                    [<Link to="/">edit</Link>]
+                    [
+                    <Link to="/" className="edit">
+                      edit
+                    </Link>
+                    ]
                   </span>
                   <span>
-                    [<Link to="/">delete</Link>]
+                    [
+                    <Link to="/" className="delete">
+                      delete
+                    </Link>
+                    ]
                   </span>
                 </div>
-                <Link to={`/campuses/${c.id}`}>
-                  <img className="campus-image" src={c.imageUrl} />
-                </Link>
               </div>
             );
           })

@@ -11,6 +11,14 @@ body {
   margin: 0;
 }
 
+/* UTILITIES */
+.edit {
+  color: skyblue;
+}
+.delete {
+  color: rgb(196, 0, 0);
+}
+
 /* NAVBAR */
 nav {
   margin: 0px;
@@ -32,7 +40,7 @@ nav {
 }
 nav a {
   font-size: 20px;
-  color: light;
+  color: skyblue;
 }
 
 /* All Campuses */
@@ -55,4 +63,11 @@ nav a {
   display: block;
   margin: auto;
   width: 275px;
+}
+.campus-buttons-container {
+  position: absolute;
+  transform: translate(5%, -130%);
+}
+.campus-buttons-container a {
+  font-size: 16px;
 }
