@@ -34,3 +34,25 @@ nav a {
   font-size: 20px;
   color: light;
 }
+
+/* All Campuses */
+.campus-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.campus-card {
+  background: dimgray;
+  border: 2px white solid;
+  margin: 20px;
+}
+.campus-card-label {
+  font-size: 22px;
+  margin: 10px;
+  text-align: center;
+}
+.campus-image {
+  display: block;
+  margin: auto;
+  width: 275px;
+}
