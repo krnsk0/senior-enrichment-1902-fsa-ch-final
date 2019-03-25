@@ -14,10 +14,10 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:campusId', async (req, res, next) => {
   try {
-    const oneCampus = await Campus.findById(req.params.campusId, {
+    const oneCampusWithStudents = await Campus.findById(req.params.campusId, {
       include: 'students'
     });
-    res.json(oneCampus);
+    res.json(oneCampusWithStudents);
   } catch (error) {
     next(error);
   }

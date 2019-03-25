@@ -3,7 +3,7 @@
 const router = require('express').Router();
 const Student = require('../db/student');
 
-router.use('/', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const allStudents = await Student.findAll();
     res.json(allStudents);
@@ -12,9 +12,11 @@ router.use('/', async (req, res, next) => {
   }
 });
 
-router.use('/:studentId', async (req, res, next) => {
+router.get('/:studentId', async (req, res, next) => {
   try {
-    const oneStudent = await Student.findById(req.params.studentId);
+    const oneStudent = await Student.findById(req.params.studentId, {
+      include: 'campus'
+    });
     res.json(oneStudent);
   } catch (error) {
     next(error);
