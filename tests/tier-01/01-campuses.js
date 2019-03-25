@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-import enzyme, { shallow } from 'enzyme';
+import enzyme, { shallow, mount } from 'enzyme';
 import sinon from 'sinon';
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
@@ -48,8 +48,8 @@ describe('Tier One: Campuses', () => {
           ]}
         />
       );
-      expect(wrapper.text()).to.include('Mars Academy');
-      expect(wrapper.text()).to.include('Jupiter Jumpstart');
+      expect(wrapper.debug()).to.include('Mars Academy');
+      expect(wrapper.debug()).to.include('Jupiter Jumpstart');
       const images = wrapper.find('img').map(node => node.get(0).props.src);
       expect(images).to.include.members([
         '/images/mars.png',
