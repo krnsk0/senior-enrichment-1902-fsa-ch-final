@@ -79,7 +79,24 @@ const firstNames = [
   'Amelia',
   'Paul',
   'Dwayne',
-  'Terrence'
+  'Terrence',
+  'Bobby',
+  'Frank',
+  'Susan',
+  'Peter',
+  'Daphne',
+  'Annie',
+  'Janora',
+  'Danielle',
+  'Tara',
+  'Samuel',
+  'Einde',
+  'Anand',
+  'Eze',
+  'Ozath',
+  'Urko',
+  'Iehmit',
+  'Strumme'
 ];
 
 const lastNames = [
@@ -92,13 +109,36 @@ const lastNames = [
   'Dilorenzo',
   'Findley',
   'Wollver',
-  'Legosier'
+  'Legosier',
+  'Chen',
+  'Bennett',
+  'Wood',
+  'Barnes',
+  'Hernandez',
+  'Green',
+  'Taylor',
+  'Cox',
+  'Butler',
+  'Diaz',
+  'Harris',
+  'Perry',
+  'Ramirez',
+  'Zhang',
+  'Zhao',
+  'Basak',
+  'Jani',
+  'Khatri',
+  'Banerjee',
+  'Gixols',
+  'Grax',
+  'Xzyvxzq',
+  'Starswonk'
 ];
 
 // thanks to https://www.allegro.cc/iotd/view/2005-08-24
 const planetImageIndices = shuffle(Array.from({ length: 10 }, (_, i) => i + 1));
 
-// thanks to http://fillerama.io/
+// thanks to http://fillerama.io/ and https://www.infoplease.com/arts-entertainment/movies-and-videos/top-100-movie-quotes
 const sentences = shuffle([
   "We'll go deliver this crate like professionals, and then we'll go home.",
   'In your face, Gandhi!',
@@ -119,7 +159,17 @@ const sentences = shuffle([
   'This is the greatest case of false advertising I\'ve seen since I sued the movie "The Never Ending Story."',
   'Kids, we need to talk for a moment about Krusty Brand Chew Goo Gum Like Substance.',
   'Send a distress signal, and inform the Senate that all on board were killed.',
-  'Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you.'
+  'Several transmissions were beamed to this ship by Rebel spies. I want to know what happened to the plans they sent you.',
+  "I'm going to make him an offer he can't refuse.",
+  "Frankly, my dear, I don't give a damn.",
+  "You don't understand! I coulda had class. I coulda been a contender. I coulda been somebody, instead of a bum, which is what I am.",
+  "Toto, I've got a feeling we're not in Kansas anymore.",
+  "I'm going to make him an offer he can't refuse.",
+  "What we've got here is failure to communicate.",
+  'A census taker once tried to test me. I ate his liver with some fava beans and a nice Chianti.',
+  "Mama always said life was like a box of chocolates. You never know what you're gonna get.",
+  "Badges? We ain't got no badges! We don't need no badges! I don't have to show you any stinking badges!",
+  'I love the smell of napalm in the morning.'
 ]);
 
 const randomInt = length => {
@@ -129,7 +179,7 @@ const randomInt = length => {
 // creates a campus object
 const randomCampusFactory = () => {
   const address = `${randomInt(100)}.${randomInt(1000)} ${addressParts.pop()}`;
-  const description = `${sentences.pop()} ${sentences.pop()}`;
+  const description = `${sentences.pop()} ${sentences.pop()} ${sentences.pop()}`;
   return {
     name: `${campusNamesFirst.pop()} ${campusNamesSecond.pop()} ${campusNamesThird.pop()}`.trim(),
     imageUrl: `/planets/${planetImageIndices.pop()}.png`,
@@ -140,8 +190,8 @@ const randomCampusFactory = () => {
 
 // creates a student object assigned to the provided campus id
 const randomStudentFactory = (campusId = null) => {
-  const firstName = firstNames[randomInt(10)];
-  const lastName = lastNames[randomInt(10)];
+  const firstName = firstNames[randomInt(firstNames.length - 1)];
+  const lastName = lastNames[randomInt(lastNames.length - 1)];
   return {
     firstName,
     lastName,
