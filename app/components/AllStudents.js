@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 export const AllStudents = props => {
-  console.log('AllStudents props: ', props);
-
   return (
     <div>
       {props.students.length

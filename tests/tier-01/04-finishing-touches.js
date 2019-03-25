@@ -1,10 +1,10 @@
 const { expect } = require('chai');
 import enzyme, { mount } from 'enzyme';
 import sinon from 'sinon';
-import React from 'react';
+
 import Adapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
-
+import React from 'react';
 import * as rrd from 'react-router-dom';
 const { MemoryRouter, Link } = rrd;
 
@@ -42,7 +42,10 @@ describe('Tier One: Final Touches', () => {
       { id: 2, firstName: 'Sally', lastName: 'Ride' }
     ];
     beforeEach(() => {
+      console.log('running beforeEach');
       sinon.stub(rrd, 'BrowserRouter').callsFake(({ children }) => {
+        console.log('********* children: ', children);
+
         return <div>{children}</div>;
       });
       mockAxios.onGet('/api/campuses').replyOnce(200, campuses);
