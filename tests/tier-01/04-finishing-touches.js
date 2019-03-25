@@ -79,13 +79,14 @@ describe('Tier One: Final Touches', () => {
 
     it('navbar to navigate to home, campuses, students', () => {
       const wrapper = mount(
-        <Provider store={store}>
-          <MemoryRouter initialEntries={['/']}>
-            <Root />
-          </MemoryRouter>
-        </Provider>
+        <MemoryRouter initialEntries={['/']}>
+          <Topbar />
+        </MemoryRouter>
       );
-      expect(wrapper.find(Topbar)).to.have.length(1);
+      // this may be a hacky, less than ideal way to do this test; consider rewriting to dive into the children and check for link elements
+      expect(wrapper.debug().includes('to="/"')).to.equal(true);
+      expect(wrapper.debug().includes('to="/campuses"')).to.equal(true);
+      expect(wrapper.debug().includes('to="/students"')).to.equal(true);
     });
   });
 
