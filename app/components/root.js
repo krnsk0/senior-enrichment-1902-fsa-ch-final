@@ -5,6 +5,7 @@ import { fetchCampuses } from '../redux/campuses';
 import { Route, Link, withRouter } from 'react-router-dom';
 import AllStudents from './AllStudents';
 import AllCampuses from './AllCampuses';
+import SingleCampus from './SingleCampus';
 import Topbar from './Topbar';
 
 class disconnectedRoot extends React.Component {

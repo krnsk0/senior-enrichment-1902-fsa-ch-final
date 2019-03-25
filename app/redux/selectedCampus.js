@@ -24,7 +24,7 @@ export const fetchSingleCampus = campusId => {
 };
 
 // reducer
-export const selectedCampus = (state = {}, action) => {
+export const selectedCampus = (state = { students: [] }, action) => {
   if (action.type === SET_SELECTED_CAMPUS) {
     return action.campus;
   } else {
