@@ -20,6 +20,7 @@ enzyme.configure({ adapter });
 
 import { AllCampuses } from '../../app/components/AllCampuses';
 import { AllStudents } from '../../app/components/AllStudents';
+import Topbar from '../../app/components/Topbar';
 import Root from '../../app/components/root';
 
 // Sometimes, we want to wait for a short tinme for async events to finish.
@@ -42,10 +43,7 @@ describe('Tier One: Final Touches', () => {
       { id: 2, firstName: 'Sally', lastName: 'Ride' }
     ];
     beforeEach(() => {
-      console.log('running beforeEach');
       sinon.stub(rrd, 'BrowserRouter').callsFake(({ children }) => {
-        console.log('********* children: ', children);
-
         return <div>{children}</div>;
       });
       mockAxios.onGet('/api/campuses').replyOnce(200, campuses);
@@ -79,8 +77,15 @@ describe('Tier One: Final Touches', () => {
       expect(wrapper.find(AllStudents)).to.have.length(1);
     });
 
-    xit('*** navbar to navigate to home, campuses, students', () => {
-      throw new Error('replace this error with your own test');
+    it('navbar to navigate to home, campuses, students', () => {
+      const wrapper = mount(
+        <Provider store={store}>
+          <MemoryRouter initialEntries={['/']}>
+            <Root />
+          </MemoryRouter>
+        </Provider>
+      );
+      expect(wrapper.find(Topbar)).to.have.length(1);
     });
   });
 

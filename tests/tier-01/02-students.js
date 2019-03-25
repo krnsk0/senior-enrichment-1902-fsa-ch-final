@@ -86,7 +86,7 @@ describe('Tier One: Students', () => {
 
       it('returns the initial state by default', () => {
         const state = testStore.getState();
-        expect(state).to.be.deep.equal({ students: [], campuses: [] });
+        expect(state.students).to.be.deep.equal(initialState.students);
       });
 
       it('reduces on SET_STUDENTS action', () => {

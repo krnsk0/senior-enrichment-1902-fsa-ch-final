@@ -14,7 +14,7 @@ The requirements below are broken into separate **tiers**, which model the way w
 - [x] Write a component to display a list of all students (at least their names)
 - [x] Display the all-campuses component when the url matches `/campuses`
 - [x] Display the all-students component when the url matches `/students`
-- [ ] Add a links to the navbar that can be used to navigate to the all-campuses view and the all-students view
+- [x] Add a links to the navbar that can be used to navigate to the all-campuses view and the all-students view
 
 #### Backend
 
@@ -47,7 +47,7 @@ The requirements below are broken into separate **tiers**, which model the way w
 - [x] Express: GET /api/students responds with all students
 - [x] Sequelize (Campus): requires name and address
 - [x] Sequelize (Student): email must be a valid email
-- [ ] Navigation: navbar to navigate to home, campuses, students
+- [x] Navigation: navbar to navigate to home, campuses, students
 - [x] Seed file: creates exactly one campus that has no students
 - [x] Seed file: creates exactly one student that is not enrolled in a campus
 

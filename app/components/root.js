@@ -16,12 +16,7 @@ class disconnectedRoot extends React.Component {
     return (
       <div>
         <Topbar />
-        {/* <nav>
-          <h3>Margaret Hamilton Interplanetary Academy of JavaScript</h3>
-          <Link to="/">Home</Link>
-          <Link to="/campuses">All Campuses</Link>
-          <Link to="/students">All Students</Link>
-        </nav> */}
+
         <main>
           <Route path="/campuses" component={AllCampuses} />
           <Route path="/students" component={AllStudents} />
