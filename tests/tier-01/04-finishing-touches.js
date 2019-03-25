@@ -147,7 +147,7 @@ describe('Tier One: Final Touches', () => {
       expect(reduxStateAfterMount.students).to.deep.equal(students);
     });
 
-    xit('<AllCampuses /> is passed campuses from store as props', async () => {
+    it('<AllCampuses /> is passed campuses from store as props', async () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/campuses']}>
@@ -162,7 +162,7 @@ describe('Tier One: Final Touches', () => {
       expect(componentCampuses).to.deep.equal(reduxCampuses);
     });
 
-    xit('<AllStudents /> is passed students from store as props', async () => {
+    it('<AllStudents /> is passed students from store as props', async () => {
       const wrapper = mount(
         <Provider store={store}>
           <MemoryRouter initialEntries={['/students']}>
