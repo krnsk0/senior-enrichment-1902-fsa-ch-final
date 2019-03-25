@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleCampus } from '../redux/selectedCampus';
+import { Link } from 'react-router-dom';
 
 class disconnectedSingleCampus extends React.Component {
   componentDidMount() {
@@ -25,7 +26,11 @@ class disconnectedSingleCampus extends React.Component {
           ? 'No students assigned to this campus'
           : campus.students.map(student => {
               const studentName = student.firstName + ' ' + student.lastName;
-              return <div key={student.id}>{studentName}</div>;
+              return (
+                <div key={student.id}>
+                  <Link to={`/students/${student.id}`}>{studentName}</Link>
+                </div>
+              );
             })}
       </div>
     );

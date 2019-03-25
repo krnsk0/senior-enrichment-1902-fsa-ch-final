@@ -9,8 +9,8 @@ import { selectedCampus } from './selectedCampus';
 const appReducer = combineReducers({
   students,
   campuses,
-  selectedStudent,
-  selectedCampus
+  selectedCampus,
+  selectedStudent
 });
 
 export default appReducer;

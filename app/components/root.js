@@ -6,6 +6,7 @@ import { Route, Link, withRouter } from 'react-router-dom';
 import AllStudents from './AllStudents';
 import AllCampuses from './AllCampuses';
 import SingleCampus from './SingleCampus';
+import SingleStudent from './SingleStudent';
 import Topbar from './Topbar';
 
 class disconnectedRoot extends React.Component {
@@ -21,6 +22,7 @@ class disconnectedRoot extends React.Component {
           <Route exact path="/campuses" component={AllCampuses} />
           <Route exact path="/students" component={AllStudents} />
           <Route path="/campuses/:campusId" component={SingleCampus} />
+          <Route path="/students/:studentId" component={SingleStudent} />
         </main>
       </div>
     );

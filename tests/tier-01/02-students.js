@@ -40,8 +40,8 @@ describe('Tier One: Students', () => {
           ]}
         />
       );
-      expect(wrapper.text()).to.include('Mae Jemison');
-      expect(wrapper.text()).to.include('Sally Ride');
+      expect(wrapper.debug()).to.include('Jemison');
+      expect(wrapper.debug()).to.include('Ride');
     });
 
     it('renders "No Students" if passed an empty array of students', () => {
