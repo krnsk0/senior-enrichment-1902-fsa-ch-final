@@ -53,6 +53,18 @@ nav a {
   justify-content: center;
 }
 
+/* SUB NAV */
+.sub-nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.sub-nav span {
+  font-size: 30px;
+}
+.sub-nav a {
+  color: skyblue;
+}
+
 /* SMALL CARD */
 .small-card {
   background: dimgray;
