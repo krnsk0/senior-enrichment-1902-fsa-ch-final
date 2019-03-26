@@ -2,12 +2,19 @@ import axios from 'axios';
 
 // action types
 const SET_STUDENTS = 'SET_STUDENTS';
+const ADD_STUDENT = 'ADD_STUDENTS';
 
 // action creators
 export const setStudents = students => {
   return {
     type: SET_STUDENTS,
     students
+  };
+};
+export const addStudent = student => {
+  return {
+    type: ADD_STUDENT,
+    student
   };
 };
 

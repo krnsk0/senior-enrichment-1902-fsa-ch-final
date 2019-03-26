@@ -12,6 +12,20 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.post('/add', async (req, res, next) => {
+  try {
+    const result = await Campus.create({
+      name: req.body.name,
+      address: req.body.address,
+      description: req.body.description
+    });
+    console.log('SERVER SIDE ADD SUCESSFUL:', result.dataValues);
+    res.json(result.dataValues);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get('/:campusId', async (req, res, next) => {
   try {
     const oneCampusWithStudents = await Campus.findById(req.params.campusId, {

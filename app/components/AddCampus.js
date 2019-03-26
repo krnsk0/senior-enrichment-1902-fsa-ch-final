@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addCampusAsync } from '../redux/campuses';
 
 class DisconnectedAddCampus extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class DisconnectedAddCampus extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    console.log(this.state);
+    this.props.addCampusAsync(this.state);
   }
 
   render() {
@@ -65,7 +66,9 @@ class DisconnectedAddCampus extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => {
-  return {};
+  return {
+    addCampusAsync: campus => dispatch(addCampusAsync(campus))
+  };
 };
 
 export default connect(
