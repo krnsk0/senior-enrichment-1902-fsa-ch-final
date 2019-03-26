@@ -3,7 +3,7 @@ import axios from 'axios';
 // action types
 const SET_CAMPUSES = 'SET_CAMPUSES';
 const ADD_CAMPUS = 'ADD_CAMPUS';
-const DELETE_STUDENT = 'DELETE_STUDENT';
+const DELETE_CAMPUS = 'DELETE_CAMPUS';
 
 // action creators
 export const setCampuses = campuses => {
@@ -20,7 +20,7 @@ export const addCampus = campus => {
 };
 export const deleteCampus = campusId => {
   return {
-    type: ADD_CAMPUS,
+    type: DELETE_CAMPUS,
     campusId
   };
 };
@@ -69,6 +69,8 @@ export const campuses = (state = [], action) => {
     return action.campuses;
   } else if (action.type === ADD_CAMPUS) {
     return [...state, action.campus];
+  } else if (action.type === DELETE_CAMPUS) {
+    return [...state.filter(campus => campus.id !== action.campusId)];
   } else {
     return state;
   }

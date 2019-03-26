@@ -20,7 +20,7 @@ export const addStudent = student => {
 };
 export const deleteStudent = studentId => {
   return {
-    type: ADD_STUDENT,
+    type: DELETE_STUDENT,
     studentId
   };
 };
@@ -55,7 +55,7 @@ export const deleteStudentAsync = studentId => {
     try {
       const response = await axios.delete(`/api/students/${studentId}`);
       console.log('response from axios delete request in students', response);
-      // TODO: handle delete failure in some way
+      // TODO: handle delete failure in some way?
       if (response.status === 202) {
         dispatch(deleteStudent(studentId));
       }
@@ -72,7 +72,7 @@ export const students = (state = [], action) => {
   } else if (action.type === ADD_STUDENT) {
     return [...state, action.student];
   } else if (action.type === DELETE_STUDENT) {
-    return state.filter(student => !student.id === action.studentId);
+    return [...state.filter(student => student.id !== action.studentId)];
   } else {
     return state;
   }
