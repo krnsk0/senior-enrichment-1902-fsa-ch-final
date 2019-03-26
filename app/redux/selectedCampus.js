@@ -2,6 +2,7 @@ import axios from 'axios';
 
 // action types
 const SET_SELECTED_CAMPUS = 'SET_SELECTED_CAMPUS';
+const DELETE_CAMPUS = 'DELETE_CAMPUS';
 
 // action creators
 export const setSingleCampus = campus => {
@@ -24,9 +25,16 @@ export const fetchSingleCampus = campusId => {
 };
 
 // reducer
-export const selectedCampus = (state = { students: [] }, action) => {
+const initialState = { students: [] };
+export const selectedCampus = (state = initialState, action) => {
   if (action.type === SET_SELECTED_CAMPUS) {
     return action.campus;
+  } else if (action.type === DELETE_CAMPUS) {
+    if (state.id === action.campusId) {
+      return initialState;
+    } else {
+      return state;
+    }
   } else {
     return state;
   }
