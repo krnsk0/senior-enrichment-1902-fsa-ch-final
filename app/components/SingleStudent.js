@@ -20,8 +20,28 @@ class disconnectedSingleStudent extends React.Component {
             <img src={student.imageUrl} className="big-card-image student" />
             <div className="big-card-text-container student">
               <div className="big-card-label student">{studentName}</div>
-              <div>Email: {student.email}</div>
-              <div>GPA: {student.gpa}</div>
+              <div className="big-card-description campus">
+                Email: {student.email}
+              </div>
+              <div className="big-card-description campus">
+                GPA: {student.gpa}
+              </div>
+              <div className="big-card-links-container student">
+                <span>
+                  [
+                  <Link to="/" className="edit">
+                    edit
+                  </Link>
+                  ]
+                </span>
+                <span>
+                  [
+                  <Link to="/" className="delete">
+                    delete
+                  </Link>
+                  ]
+                </span>
+              </div>
             </div>
           </div>
         </div>

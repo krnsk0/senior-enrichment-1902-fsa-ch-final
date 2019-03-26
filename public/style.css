@@ -103,15 +103,15 @@ nav a {
 }
 .big-card-container {
   display: flex;
-}
-.big-card-image {
-  /* margin: auto; */
+  justify-content: space-evenly;
 }
 .big-card-image.campus {
   height: 200px;
 }
 .big-card-image.student {
-  width: 300px;
+  height: 200px;
+}
+.big-card-text-container {
 }
 .big-card-label {
   font-size: 32px;
