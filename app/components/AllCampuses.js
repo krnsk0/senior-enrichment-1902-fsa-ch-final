@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 
 export const AllCampuses = props => {
   return (
-    <div className="campus-container">
+    <div className="campus-card-container">
       {props.campuses.length
         ? props.campuses.map(c => {
             return (
               <div key={c.id} className="campus-card">
                 <Link to={`/campuses/${c.id}`}>
                   <div className="campus-card-label">{c.name}</div>
-                  <img className="campus-image" src={c.imageUrl} />
+                  <img className="campus-card-image" src={c.imageUrl} />
                 </Link>
-                <div className="campus-buttons-container">
+                <div className="campus-card-links-container">
                   <span>
                     [
                     <Link to="/" className="edit">

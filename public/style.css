@@ -17,7 +17,7 @@ body {
   color: skyblue;
 }
 .delete {
-  color: rgb(196, 0, 0);
+  color: skyblue;
 }
 
 /* NAVBAR */
@@ -46,8 +46,8 @@ nav a {
   color: skyblue;
 }
 
-/* All Campuses */
-.campus-container {
+/* CAMPUS CARD */
+.campus-card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -62,15 +62,18 @@ nav a {
   margin: 10px;
   text-align: center;
 }
-.campus-image {
+.campus-card-image {
   display: block;
   margin: auto;
   width: 275px;
 }
-.campus-buttons-container {
+.campus-card-links-container {
   position: absolute;
-  transform: translate(5%, -130%);
+  transform: translate(2%, -130%);
+  width: 265px;
+  display: flex;
+  justify-content: space-between;
 }
-.campus-buttons-container a {
+.campus-card-links-container a {
   font-size: 16px;
 }
