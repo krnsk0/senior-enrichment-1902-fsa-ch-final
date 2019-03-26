@@ -19,24 +19,30 @@ class disconnectedAllCampuses extends React.Component {
   render() {
     return (
       <div>
-        <div className="sub-nav">
-          <span className="nav-link">
-            [<Link to="/campuses/add">Add New Campus</Link>]
-          </span>
-        </div>
-        <div className="small-card-container campus">
-          {this.props.campuses.length
-            ? this.props.campuses.map(campus => {
-                return (
-                  <SmallCampusCard
-                    campus={campus}
-                    key={campus.id}
-                    handleDelete={this.handleDelete}
-                  />
-                );
-              })
-            : 'No Campuses'}
-        </div>
+        {this.props.campuses.length === 0 ? (
+          <div className="sub-nav loading">Loading...</div>
+        ) : (
+          <div>
+            <div className="sub-nav">
+              <span className="nav-link">
+                [<Link to="/campuses/add">Add New Campus</Link>]
+              </span>
+            </div>
+            <div className="small-card-container campus">
+              {this.props.campuses.length
+                ? this.props.campuses.map(campus => {
+                    return (
+                      <SmallCampusCard
+                        campus={campus}
+                        key={campus.id}
+                        handleDelete={this.handleDelete}
+                      />
+                    );
+                  })
+                : 'No Campuses'}
+            </div>
+          </div>
+        )}
       </div>
     );
   }

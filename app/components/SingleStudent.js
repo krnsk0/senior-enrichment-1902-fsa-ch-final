@@ -23,49 +23,64 @@ class disconnectedSingleStudent extends React.Component {
     const studentName = student.firstName + ' ' + student.lastName;
     return (
       <div>
-        <div className="big-card student">
-          <div className="big-card-container student">
-            <img src={student.imageUrl} className="big-card-image student" />
-            <div className="big-card-text-container student">
-              <div className="big-card-label student">{studentName}</div>
-              <div className="big-card-description campus">
-                Email: {student.email}
+        {!this.props.selectedCampus.id ? (
+          <div className="sub-nav loading">Loading...</div>
+        ) : (
+          <div>
+            <div className="big-card student">
+              <div className="big-card-container student">
+                <img
+                  src={student.imageUrl}
+                  className="big-card-image student"
+                />
+                <div className="big-card-text-container student">
+                  <div className="big-card-label student">{studentName}</div>
+                  <div className="big-card-description campus">
+                    Email: {student.email}
+                  </div>
+                  <div className="big-card-description campus">
+                    GPA: {student.gpa}
+                  </div>
+                  <div className="big-card-links-container student">
+                    <span>
+                      [
+                      <Link to={`/student/${student.id}/edit`} className="edit">
+                        edit
+                      </Link>
+                      ]
+                    </span>
+                    <span>
+                      [
+                      <Link
+                        to=""
+                        className="delete"
+                        onClick={this.handleDelete}
+                      >
+                        delete
+                      </Link>
+                      ]
+                    </span>
+                  </div>
+                </div>
               </div>
-              <div className="big-card-description campus">
-                GPA: {student.gpa}
-              </div>
-              <div className="big-card-links-container student">
-                <span>
-                  [
-                  <Link to={`/student/${student.id}/edit`} className="edit">
-                    edit
-                  </Link>
-                  ]
-                </span>
-                <span>
-                  [
-                  <Link to="" className="delete" onClick={this.handleDelete}>
-                    delete
-                  </Link>
-                  ]
-                </span>
-              </div>
+            </div>
+
+            <div>
+              {student.campusId === null ? (
+                <div className="sub-nav">
+                  This student not assigned to a campus
+                </div>
+              ) : (
+                <div>
+                  <div className="sub-nav">This student attends:</div>
+                  <div className="small-card-container campus">
+                    <SmallCampusCard campus={student.campus} />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-        </div>
-
-        <div>
-          {student.campusId === null ? (
-            <div className="sub-nav">This student not assigned to a campus</div>
-          ) : (
-            <div>
-              <div className="sub-nav">This student attends:</div>
-              <div className="small-card-container campus">
-                <SmallCampusCard campus={student.campus} />
-              </div>
-            </div>
-          )}
-        </div>
+        )}
       </div>
     );
   }
