@@ -27,7 +27,7 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.delete('/:campusId', async (req, res, next) => {
+router.delete('/:campusId(\\d+)', async (req, res, next) => {
   console.log('in delete route');
   try {
     const result = await Campus.destroy({
@@ -42,7 +42,7 @@ router.delete('/:campusId', async (req, res, next) => {
   }
 });
 
-router.get('/:campusId', async (req, res, next) => {
+router.get('/:campusId(\\d+)', async (req, res, next) => {
   try {
     const oneCampusWithStudents = await Campus.findById(req.params.campusId, {
       include: 'students'

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NotFound = () => {
+const NotFound404 = () => {
   return (
     <div>
       <div className="sub-nav not-found">Page not found</div>
@@ -9,4 +9,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default NotFound404;

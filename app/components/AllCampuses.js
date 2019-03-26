@@ -8,6 +8,7 @@ class disconnectedAllCampuses extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    console.log('initial props', props);
   }
 
   handleDelete(evt, campusId) {

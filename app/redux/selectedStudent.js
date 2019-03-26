@@ -20,6 +20,9 @@ export const fetchSingleStudent = (studentId, history) => {
       dispatch(setSingleStudent(data));
     } catch (err) {
       if (err.response.status === 500) {
+        history.push('/500');
+      }
+      if (err.response.status === 404) {
         history.push('/404');
       } else {
         console.log('Something went wrong getting a single campus', err);

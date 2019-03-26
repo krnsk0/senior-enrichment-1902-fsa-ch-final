@@ -28,7 +28,7 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.delete('/:studentId', async (req, res, next) => {
+router.delete('/:studentId(\\d+)', async (req, res, next) => {
   try {
     const result = await Student.destroy({
       where: {
@@ -42,7 +42,7 @@ router.delete('/:studentId', async (req, res, next) => {
   }
 });
 
-router.get('/:studentId', async (req, res, next) => {
+router.get('/:studentId(\\d+)', async (req, res, next) => {
   try {
     const oneStudent = await Student.findById(req.params.studentId, {
       include: 'campus'
