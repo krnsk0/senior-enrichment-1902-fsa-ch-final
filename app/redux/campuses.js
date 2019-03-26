@@ -36,7 +36,7 @@ export const fetchCampuses = () => {
     }
   };
 };
-export const addCampusAsync = (campus, history, redirectPath) => {
+export const addCampusAsync = (campus, history) => {
   return async dispatch => {
     try {
       const { data } = await axios.post('/api/campuses/', campus);
@@ -49,7 +49,7 @@ export const addCampusAsync = (campus, history, redirectPath) => {
     }
   };
 };
-export const deleteCampusAsync = campusId => {
+export const deleteCampusAsync = (campusId, history, redirectPath) => {
   return async dispatch => {
     try {
       const response = await axios.delete(`/api/campuses/${campusId}`);
@@ -57,6 +57,7 @@ export const deleteCampusAsync = campusId => {
       // TODO: handle delete failure in some way?
       if (response.status === 202) {
         dispatch(deleteCampus(campusId));
+        history.push(redirectPath);
       }
     } catch (err) {
       console.log('Something went wrong deleting a campus', err);

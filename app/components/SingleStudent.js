@@ -15,7 +15,7 @@ class disconnectedSingleStudent extends React.Component {
   handleDelete(evt) {
     evt.preventDefault();
     const studentId = this.props.selectedStudent.id;
-    this.props.deleteStudentAsync(studentId);
+    this.props.deleteStudentAsync(studentId, this.props.history, '/students');
   }
 
   render() {
@@ -74,7 +74,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchSingleStudent: studentId => dispatch(fetchSingleStudent(studentId)),
-    deleteStudentAsync: studentId => dispatch(deleteStudentAsync(studentId))
+    deleteStudentAsync: (studentId, history, redirectPath) =>
+      dispatch(deleteStudentAsync(studentId, history, redirectPath))
   };
 };
 export default connect(

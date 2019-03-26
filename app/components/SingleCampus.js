@@ -15,7 +15,7 @@ class disconnectedSingleCampus extends React.Component {
   handleDelete(evt) {
     evt.preventDefault();
     const campusId = this.props.selectedCampus.id;
-    this.props.deleteCampusAsync(campusId);
+    this.props.deleteCampusAsync(campusId, this.props.history, '/campuses');
   }
 
   render() {
@@ -73,7 +73,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchSingleCampus: campusId => dispatch(fetchSingleCampus(campusId)),
-    deleteCampusAsync: campusId => dispatch(deleteCampusAsync(campusId))
+    deleteCampusAsync: (campusId, history, redirectPath) =>
+      dispatch(deleteCampusAsync(campusId, history, redirectPath))
   };
 };
 export default connect(

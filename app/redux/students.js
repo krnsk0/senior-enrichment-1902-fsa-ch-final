@@ -51,7 +51,7 @@ export const addStudentAsync = (student, history) => {
   };
 };
 
-export const deleteStudentAsync = studentId => {
+export const deleteStudentAsync = (studentId, history, redirectPath) => {
   return async dispatch => {
     try {
       const response = await axios.delete(`/api/students/${studentId}`);
@@ -59,6 +59,7 @@ export const deleteStudentAsync = studentId => {
       // TODO: handle delete failure in some way?
       if (response.status === 202) {
         dispatch(deleteStudent(studentId));
+        history.push(redirectPath);
       }
     } catch (err) {
       console.log('Something went wrong deleting a student', err);
