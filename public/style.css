@@ -79,7 +79,7 @@ nav a {
   font-size: 22px;
 }
 .small-card-label.student {
-  font-size: 16px;
+  font-size: 20px;
 }
 .small-card-info {
   font-size: 16px;
@@ -96,12 +96,19 @@ nav a {
 .small-card-image.student {
   width: 150px;
 }
-.small-card-links-container {
+.small-card-links-container.campus {
   position: absolute;
   transform: translate(2%, -130%);
   width: 265px;
   display: flex;
   justify-content: space-between;
+}
+.small-card-links-container.student {
+  transform: translate(2%);
+  width: 145px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
 }
 .small-card-links-container span {
   font-size: 16px;

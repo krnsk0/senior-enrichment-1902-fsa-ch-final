@@ -1,27 +1,45 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { deleteCampusAsync } from '../redux/campuses';
 import SmallCampusCard from './SmallCampusCard';
 import { Link } from 'react-router-dom';
 
-export const AllCampuses = props => {
-  console.log('props: ', props);
-  return (
-    <div>
-      <div className="sub-nav">
-        <span className="nav-link">
-          [<Link to="/campuses/add">Add New Campus</Link>]
-        </span>
+class disconnectedAllCampuses extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(evt, campusId) {
+    evt.preventDefault();
+    this.props.deleteCampusAsync(campusId, this.props.history, '/campuses');
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="sub-nav">
+          <span className="nav-link">
+            [<Link to="/campuses/add">Add New Campus</Link>]
+          </span>
+        </div>
+        <div className="small-card-container campus">
+          {this.props.campuses.length
+            ? this.props.campuses.map(campus => {
+                return (
+                  <SmallCampusCard
+                    campus={campus}
+                    key={campus.id}
+                    handleDelete={this.handleDelete}
+                  />
+                );
+              })
+            : 'No Campuses'}
+        </div>
       </div>
-      <div className="small-card-container campus">
-        {props.campuses.length
-          ? props.campuses.map(campus => {
-              return <SmallCampusCard campus={campus} key={campus.id} />;
-            })
-          : 'No Campuses'}
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 const mapState = state => {
   return {
@@ -30,10 +48,13 @@ const mapState = state => {
 };
 
 const mapDispatch = dispatch => {
-  return {};
+  return {
+    deleteCampusAsync: (campusId, history, redirectPath) =>
+      dispatch(deleteCampusAsync(campusId, history, redirectPath))
+  };
 };
 
 export default connect(
   mapState,
   mapDispatch
-)(AllCampuses);
+)(disconnectedAllCampuses);

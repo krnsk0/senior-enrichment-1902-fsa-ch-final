@@ -19,7 +19,11 @@ const SmallCampusCard = props => {
         </span>
         <span>
           [
-          <Link to={`/campuses/${campus.id}/delete`} className="delete">
+          <Link
+            to=""
+            className="delete"
+            onClick={evt => props.handleDelete(evt, campus.id)}
+          >
             delete
           </Link>
           ]

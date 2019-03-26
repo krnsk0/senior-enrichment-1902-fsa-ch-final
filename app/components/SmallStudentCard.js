@@ -11,6 +11,28 @@ const SmallStudentCard = props => {
           <br />
           {student.lastName}
         </div>
+      </Link>
+      <div className="small-card-links-container student">
+        <span>
+          [
+          <Link to={`/studnets/${student.id}/edit`} className="edit">
+            edit
+          </Link>
+          ]
+        </span>
+        <span>
+          [
+          <Link
+            to=""
+            className="delete"
+            onClick={evt => props.handleDelete(evt, student.id)}
+          >
+            delete
+          </Link>
+          ]
+        </span>
+      </div>
+      <Link to={`/students/${student.id}`}>
         <img className="small-card-image student" src={student.imageUrl} />
       </Link>
     </div>
