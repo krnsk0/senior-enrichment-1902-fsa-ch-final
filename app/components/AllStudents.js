@@ -8,7 +8,7 @@ export const AllStudents = props => {
     <div>
       <div className="sub-nav">
         <span className="nav-link">
-          [<Link to="/studnets/add">Add New Student</Link>]
+          [<Link to="/students/add">Add New Student</Link>]
         </span>
       </div>
       <div className="small-card-container student">

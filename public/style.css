@@ -149,3 +149,36 @@ nav a {
 .big-card-links-container span {
   font-size: 16px;
 }
+
+/* FORMS */
+.form-block {
+  text-align: center;
+  margin: 10px;
+}
+form label {
+  font-size: 22px;
+  display: block;
+  margin: auto;
+}
+form input {
+  color: black;
+  font-size: 22px;
+  display: block;
+  margin: auto;
+}
+form textarea {
+  color: black;
+  font-size: 16px;
+  display: block;
+  width: 300px;
+  height: 200px;
+  margin: auto;
+}
+form button {
+  color: black;
+  font-size: 22px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
