@@ -29,14 +29,14 @@ class disconnectedSingleStudent extends React.Component {
               <div className="big-card-links-container student">
                 <span>
                   [
-                  <Link to="/" className="edit">
+                  <Link to={`/student/${student.id}/edit`} className="edit">
                     edit
                   </Link>
                   ]
                 </span>
                 <span>
                   [
-                  <Link to="/" className="delete">
+                  <Link to={`/student/${student.id}/delete`} className="delete">
                     delete
                   </Link>
                   ]

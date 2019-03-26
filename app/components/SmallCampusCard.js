@@ -12,14 +12,14 @@ const SmallCampusCard = props => {
       <div className="small-card-links-container campus">
         <span>
           [
-          <Link to="/" className="edit">
+          <Link to={`/campuses/${campus.id}/edit`} className="edit">
             edit
           </Link>
           ]
         </span>
         <span>
           [
-          <Link to="/" className="delete">
+          <Link to={`/campuses/${campus.id}/delete`} className="delete">
             delete
           </Link>
           ]
