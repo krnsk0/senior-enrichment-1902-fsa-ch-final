@@ -73,7 +73,9 @@ div.sub-nav.not-found {
 img.not-found {
   width: 100%;
 }
-
+.sub-nav.loading {
+  font-size: 50px;
+}
 /* SMALL CARD */
 .small-card {
   background: dimgray;
