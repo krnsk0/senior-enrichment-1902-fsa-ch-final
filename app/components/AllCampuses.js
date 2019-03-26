@@ -4,6 +4,7 @@ import SmallCampusCard from './SmallCampusCard';
 import { Link } from 'react-router-dom';
 
 export const AllCampuses = props => {
+  console.log('props: ', props);
   return (
     <div>
       <div className="sub-nav">

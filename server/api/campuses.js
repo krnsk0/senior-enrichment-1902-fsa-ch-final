@@ -3,6 +3,10 @@
 const router = require('express').Router();
 const Campus = require('../db/campus');
 
+const randomInt = length => {
+  return Math.floor(Math.random() * length);
+};
+
 router.get('/', async (req, res, next) => {
   try {
     const allCampuses = await Campus.findAll();
@@ -14,13 +18,15 @@ router.get('/', async (req, res, next) => {
 
 router.post('/add', async (req, res, next) => {
   try {
-    const result = await Campus.create({
+    const { dataValues } = await Campus.create({
       name: req.body.name,
       address: req.body.address,
-      description: req.body.description
+      description: req.body.description,
+      imageUrl: `/images/${randomInt(10) + 1}.png`
     });
-    console.log('SERVER SIDE ADD SUCESSFUL:', result.dataValues);
-    res.json(result.dataValues);
+    // console.log('sever side result of Campus.create', dataValues);
+    // TODO: handle failed validation
+    res.json(dataValues);
   } catch (error) {
     next(error);
   }

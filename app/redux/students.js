@@ -20,10 +20,10 @@ export const addStudent = student => {
 export const addStudentAsync = student => {
   return async dispatch => {
     try {
-      const { newStudent } = await axios.post('/api/students/add', student);
-      console.log('newStudent', newStudent);
+      const { data } = await axios.post('/api/students/add', student);
+      // console.log('data', data);
       // TODO: handle validation errors
-      dispatch(addStudent(newStudent));
+      dispatch(addStudent(data));
     } catch (err) {
       console.log('Something went wrong adding a student', err);
     }

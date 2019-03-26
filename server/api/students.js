@@ -14,14 +14,16 @@ router.get('/', async (req, res, next) => {
 
 router.post('/add', async (req, res, next) => {
   try {
-    const result = await Student.create({
+    const { dataValues } = await Student.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      gpa: req.body.gpa
+      gpa: req.body.gpa,
+      imageUrl: `https://robohash.org/${req.body.firstName}${req.body.lastName}`
     });
-    console.log('SERVER SIDE ADD SUCESSFUL:', result.dataValues);
-    res.json(result.dataValues);
+    // console.log('server side result of Studnet.create', dataValues);
+    // TODO: handle failed valuation
+    res.json(dataValues);
   } catch (error) {
     next(error);
   }
