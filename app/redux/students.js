@@ -17,6 +17,18 @@ export const addStudent = student => {
     student
   };
 };
+export const addStudentAsync = student => {
+  return async dispatch => {
+    try {
+      const { newStudent } = await axios.post('/api/students/add', student);
+      console.log('newStudent', newStudent);
+      // TODO: handle validation errors
+      dispatch(addStudent(newStudent));
+    } catch (err) {
+      console.log('Something went wrong adding a student', err);
+    }
+  };
+};
 
 // thunks
 export const fetchStudents = () => {
@@ -34,6 +46,8 @@ export const fetchStudents = () => {
 export const students = (state = [], action) => {
   if (action.type === SET_STUDENTS) {
     return action.students;
+  } else if (action.type === ADD_STUDENT) {
+    return [...state, action.student];
   } else {
     return state;
   }

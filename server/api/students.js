@@ -12,6 +12,21 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.post('/add', async (req, res, next) => {
+  try {
+    const result = await Student.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      gpa: req.body.gpa
+    });
+    console.log('SERVER SIDE ADD SUCESSFUL:', result.dataValues);
+    res.json(result.dataValues);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get('/:studentId', async (req, res, next) => {
   try {
     const oneStudent = await Student.findById(req.params.studentId, {
