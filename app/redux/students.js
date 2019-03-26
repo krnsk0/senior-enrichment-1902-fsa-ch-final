@@ -18,16 +18,10 @@ export const addStudent = student => {
     student
   };
 };
-export const addStudentAsync = student => {
-  return async dispatch => {
-    try {
-      const { data } = await axios.post('/api/students/', student);
-      // console.log('data', data);
-      // TODO: handle validation errors
-      dispatch(addStudent(data));
-    } catch (err) {
-      console.log('Something went wrong adding a student', err);
-    }
+export const deleteStudent = studentId => {
+  return {
+    type: ADD_STUDENT,
+    studentId
   };
 };
 
@@ -43,12 +37,42 @@ export const fetchStudents = () => {
   };
 };
 
+export const addStudentAsync = student => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.post('/api/students/', student);
+      // console.log('data', data);
+      // TODO: handle validation errors
+      dispatch(addStudent(data));
+    } catch (err) {
+      console.log('Something went wrong adding a student', err);
+    }
+  };
+};
+
+export const deleteStudentAsync = studentId => {
+  return async dispatch => {
+    try {
+      const response = await axios.delete(`/api/students/${studentId}`);
+      console.log('response from axios delete request in students', response);
+      // TODO: handle delete failure in some way
+      if (response.status === 202) {
+        dispatch(deleteStudent(studentId));
+      }
+    } catch (err) {
+      console.log('Something went wrong deleting a student', err);
+    }
+  };
+};
+
 // reducer
 export const students = (state = [], action) => {
   if (action.type === SET_STUDENTS) {
     return action.students;
   } else if (action.type === ADD_STUDENT) {
     return [...state, action.student];
+  } else if (action.type === DELETE_STUDENT) {
+    return state.filter(student => !student.id === action.studentId);
   } else {
     return state;
   }

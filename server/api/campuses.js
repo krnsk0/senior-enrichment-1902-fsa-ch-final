@@ -27,18 +27,8 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.get('/:campusId', async (req, res, next) => {
-  try {
-    const oneCampusWithStudents = await Campus.findById(req.params.campusId, {
-      include: 'students'
-    });
-    res.json(oneCampusWithStudents);
-  } catch (error) {
-    next(error);
-  }
-});
-
 router.delete('/:campusId', async (req, res, next) => {
+  console.log('in delete route');
   try {
     const result = await Campus.destroy({
       where: {
@@ -47,6 +37,17 @@ router.delete('/:campusId', async (req, res, next) => {
     });
     // TODO: handle failed destruction
     res.status(202).send('');
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/:campusId', async (req, res, next) => {
+  try {
+    const oneCampusWithStudents = await Campus.findById(req.params.campusId, {
+      include: 'students'
+    });
+    res.json(oneCampusWithStudents);
   } catch (error) {
     next(error);
   }

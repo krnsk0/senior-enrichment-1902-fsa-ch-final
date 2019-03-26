@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleCampus } from '../redux/selectedCampus';
+import { deleteCampusAsync } from '../redux/campuses';
 import { Link } from 'react-router-dom';
 import SmallStudentCard from './SmallStudentCard';
 
@@ -8,6 +9,13 @@ class disconnectedSingleCampus extends React.Component {
   componentDidMount() {
     const { campusId } = this.props.match.params;
     this.props.fetchSingleCampus(campusId);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleDelete(evt) {
+    evt.preventDefault();
+    const campusId = this.props.selectedCampus.id;
+    this.props.deleteCampusAsync(campusId);
   }
 
   render() {
@@ -35,7 +43,7 @@ class disconnectedSingleCampus extends React.Component {
                 </span>
                 <span>
                   [
-                  <Link to={`/campuses/${campus.id}/delete`} className="delete">
+                  <Link to="" className="delete" onClick={this.handleDelete}>
                     delete
                   </Link>
                   ]
@@ -64,7 +72,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSingleCampus: campusId => dispatch(fetchSingleCampus(campusId))
+    fetchSingleCampus: campusId => dispatch(fetchSingleCampus(campusId)),
+    deleteCampusAsync: campusId => dispatch(deleteCampusAsync(campusId))
   };
 };
 export default connect(

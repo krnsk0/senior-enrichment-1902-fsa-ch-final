@@ -3,6 +3,7 @@ import axios from 'axios';
 // action types
 const SET_CAMPUSES = 'SET_CAMPUSES';
 const ADD_CAMPUS = 'ADD_CAMPUS';
+const DELETE_STUDENT = 'DELETE_STUDENT';
 
 // action creators
 export const setCampuses = campuses => {
@@ -15,6 +16,12 @@ export const addCampus = campus => {
   return {
     type: ADD_CAMPUS,
     campus
+  };
+};
+export const deleteCampus = campusId => {
+  return {
+    type: ADD_CAMPUS,
+    campusId
   };
 };
 
@@ -38,6 +45,20 @@ export const addCampusAsync = campus => {
       dispatch(addCampus(data));
     } catch (err) {
       console.log('Something went wrong adding a campus', err);
+    }
+  };
+};
+export const deleteCampusAsync = campusId => {
+  return async dispatch => {
+    try {
+      const response = await axios.delete(`/api/campuses/${campusId}`);
+      console.log('response from axios delete request in campuses', response);
+      // TODO: handle delete failure in some way?
+      if (response.status === 202) {
+        dispatch(deleteCampus(campusId));
+      }
+    } catch (err) {
+      console.log('Something went wrong deleting a campus', err);
     }
   };
 };
