@@ -4,7 +4,7 @@ import SmallCampusCard from './SmallCampusCard';
 
 export const AllCampuses = props => {
   return (
-    <div className="small-card-container">
+    <div className="small-card-container campus">
       {props.campuses.length
         ? props.campuses.map(campus => {
             return <SmallCampusCard campus={campus} key={campus.id} />;

@@ -14,14 +14,18 @@ class disconnectedSingleCampus extends React.Component {
     const campus = this.props.selectedCampus;
     return (
       <div>
-        <div className="big-card">
-          <div className="big-card-container">
-            <img src={campus.imageUrl} className="big-card-image" />
-            <div className="big-card-text-container">
-              <div className="big-card-label">{campus.name}</div>
-              <div className="big-card-address">Address: {campus.address}</div>
-              <div className="big-card-description">{campus.description}</div>
-              <div className="big-card-links-container">
+        <div className="big-card campus">
+          <div className="big-card-container campus">
+            <img src={campus.imageUrl} className="big-card-image campus" />
+            <div className="big-card-text-container campus">
+              <div className="big-card-label campus">{campus.name}</div>
+              <div className="big-card-address campus">
+                Address: {campus.address}
+              </div>
+              <div className="big-card-description campus">
+                {campus.description}
+              </div>
+              <div className="big-card-links-container campus">
                 <span>
                   [
                   <Link to="/" className="edit">
@@ -40,7 +44,7 @@ class disconnectedSingleCampus extends React.Component {
             </div>
           </div>
         </div>
-        <div className="small-card-container">
+        <div className="small-card-container student">
           {campus.students.length === 0
             ? 'No students assigned to this campus'
             : campus.students.map(student => {

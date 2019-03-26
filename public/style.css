@@ -54,34 +54,44 @@ nav a {
 }
 
 /* SMALL CARD */
-.card {
+.small-card {
   background: dimgray;
   border: 2px white solid;
   margin: 20px;
 }
-.card-label {
-  font-size: 22px;
+.small-card-label {
   margin: 10px;
   text-align: center;
 }
-.card-info {
+.small-card-label.campus {
+  font-size: 22px;
+}
+.small-card-label.student {
+  font-size: 16px;
+}
+.small-card-info {
   font-size: 16px;
   margin: 10px;
   text-align: center;
 }
-.card-image {
+.small-card-image {
   display: block;
   margin: auto;
+}
+.small-card-image.campus {
   width: 275px;
 }
-.card-links-container {
+.small-card-image.student {
+  width: 150px;
+}
+.small-card-links-container {
   position: absolute;
   transform: translate(2%, -130%);
   width: 265px;
   display: flex;
   justify-content: space-between;
 }
-.card-links-container span {
+.small-card-links-container span {
   font-size: 16px;
 }
 
@@ -95,8 +105,13 @@ nav a {
   display: flex;
 }
 .big-card-image {
-  margin: auto;
-  width: 400px;
+  /* margin: auto; */
+}
+.big-card-image.campus {
+  height: 200px;
+}
+.big-card-image.student {
+  width: 300px;
 }
 .big-card-label {
   font-size: 32px;

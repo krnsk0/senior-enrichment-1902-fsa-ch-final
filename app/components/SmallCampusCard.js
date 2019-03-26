@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 const SmallCampusCard = props => {
   const campus = props.campus;
   return (
-    <div key={campus.id} className="card">
+    <div key={campus.id} className="small-card campus">
       <Link to={`/campuses/${campus.id}`}>
-        <div className="card-label">{campus.name}</div>
-        <img className="card-image" src={campus.imageUrl} />
+        <div className="small-card-label campus">{campus.name}</div>
+        <img className="small-card-image campus" src={campus.imageUrl} />
       </Link>
-      <div className="card-links-container">
+      <div className="small-card-links-container campus">
         <span>
           [
           <Link to="/" className="edit">
