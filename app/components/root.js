@@ -19,6 +19,7 @@ class disconnectedRoot extends React.Component {
       <div>
         <Topbar />
         <main>
+          <Route exact path="/" component={AllCampuses} />
           <Route exact path="/campuses" component={AllCampuses} />
           <Route exact path="/students" component={AllStudents} />
           <Route path="/campuses/:campusId" component={SingleCampus} />

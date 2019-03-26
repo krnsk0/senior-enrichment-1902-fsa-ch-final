@@ -7,8 +7,15 @@ const Topbar = props => {
       <img id="hamilton-image" src="header.png" />
       <div className="header-text">Interplanetary Academy of Javascript</div>
       <div className="nav-link-container">
-        [<Link to="/">Home</Link>] [<Link to="/campuses">All Campuses</Link>] [
-        <Link to="/students">All Students</Link>]
+        <span className="nav-link">
+          [<Link to="/">Home</Link>]
+        </span>
+        <span className="nav-link">
+          [<Link to="/campuses">All Campuses</Link>]
+        </span>{' '}
+        <span className="nav-link">
+          [<Link to="/students">All Students</Link>]
+        </span>
       </div>
     </nav>
   );
