@@ -8,9 +8,6 @@ const Topbar = props => {
       <div className="header-text">Interplanetary Academy of Javascript</div>
       <div className="nav-link-container">
         <span className="nav-link">
-          [<Link to="/">Home</Link>]
-        </span>
-        <span className="nav-link">
           [<Link to="/campuses">All Campuses</Link>]
         </span>{' '}
         <span className="nav-link">

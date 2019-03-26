@@ -46,34 +46,79 @@ nav a {
   color: skyblue;
 }
 
-/* CAMPUS CARD */
-.campus-card-container {
+/* CARD DISPLAY */
+.card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.campus-card {
+
+/* SMALL CARD */
+.card {
   background: dimgray;
   border: 2px white solid;
   margin: 20px;
 }
-.campus-card-label {
+.card-label {
   font-size: 22px;
   margin: 10px;
   text-align: center;
 }
-.campus-card-image {
+.card-info {
+  font-size: 16px;
+  margin: 10px;
+  text-align: center;
+}
+.card-image {
   display: block;
   margin: auto;
   width: 275px;
 }
-.campus-card-links-container {
+.card-links-container {
   position: absolute;
   transform: translate(2%, -130%);
   width: 265px;
   display: flex;
   justify-content: space-between;
 }
-.campus-card-links-container a {
+.card-links-container span {
+  font-size: 16px;
+}
+
+/* LARGE CARD */
+.big-card {
+  background: dimgray;
+  border: 2px white solid;
+  margin: 20px;
+}
+.big-card-container {
+  display: flex;
+}
+.big-card-image {
+  margin: auto;
+  width: 400px;
+}
+.big-card-label {
+  font-size: 32px;
+  margin: 10px;
+  text-align: center;
+}
+.big-card-description {
+  font-size: 16px;
+  margin: 20px;
+  text-align: center;
+}
+.big-card-address {
+  font-size: 14px;
+  margin: 10px;
+  text-align: center;
+}
+.big-card-links-container {
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.big-card-links-container span {
   font-size: 16px;
 }
