@@ -10,6 +10,7 @@ import SingleStudent from './SingleStudent';
 import Topbar from './Topbar';
 import AddCampus from './AddCampus';
 import AddStudent from './AddStudent';
+import NotFound from './NotFound';
 
 class disconnectedRoot extends React.Component {
   componentDidMount() {
@@ -33,6 +34,7 @@ class disconnectedRoot extends React.Component {
               path="/students/:studentId"
               component={SingleStudent}
             />
+            <Route component={NotFound} />
           </Switch>
         </main>
       </div>

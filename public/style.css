@@ -53,7 +53,7 @@ nav a {
   justify-content: center;
 }
 
-/* SUB NAV */
+/* SUB NAV & UTILITIES */
 .sub-nav {
   text-align: center;
   margin-bottom: 20px;
@@ -64,8 +64,14 @@ nav a {
 div.sub-nav {
   font-size: 20px;
 }
+div.sub-nav.not-found {
+  font-size: 50px;
+}
 .sub-nav a {
   color: skyblue;
+}
+img.not-found {
+  width: 100%;
 }
 
 /* SMALL CARD */

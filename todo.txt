@@ -1,6 +1,7 @@
-disable broken tests
+fix background image location
+If a user attempts to access a page that doesn't exist (ex. `/cafeteria`), a helpful "not found" message should be displayed
+loading message
 conditional rendering on edit/delete links
-loading 
 
 
 FINAL TODOS
