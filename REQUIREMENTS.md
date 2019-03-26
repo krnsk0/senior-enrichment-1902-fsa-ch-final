@@ -106,8 +106,8 @@ Congrats! You have completed your second vertical slice! Make sure to `commit -m
 
 #### Backend
 
-- [ ] Write a route to add a new campus
-- [ ] Write a route to add a new student
+- [x] Write a route to add a new campus
+- [x] Write a route to add a new student
 
 Congrats! You have completed your third vertical slice! Make sure to `commit -m "Feature: Add Campus and Student"` before moving on (see RUBRIC.md - points are awarded/deducted for a proper git workflow)!
 
@@ -119,14 +119,14 @@ Congrats! You have completed your third vertical slice! Make sure to `commit -m 
 
 #### Frontend
 
-- [ ] In the all-campuses view, include an `X` button next to each campus
-- [ ] Clicking the `X` button should:
+- [x] In the all-campuses view, include an `X` button next to each campus
+- [x] Clicking the `X` button should:
 
   - [ ] Make an AJAX request that causes that campus to be removed from database
   - [ ] Remove the campus from the list of campuses without needing to refresh the page
 
-- [ ] In the all-students view, include an `X` button next to each student
-- [ ] Clicking the `X` button should:
+- [x] In the all-students view, include an `X` button next to each student
+- [x] Clicking the `X` button should:
   - [ ] Make an AJAX request that causes that student to be removed from database
   - [ ] Remove the student from the list of students without needing to refresh the page
 
@@ -147,7 +147,7 @@ Congrats! You have completed your fourth vertical slice! Make sure to `commit -m
 - [ ] If a user attempts to access a page that doesn't exist (ex. `/cafeteria`), a helpful "not found" message should be displayed
 - [ ] If a user attempts to view a student/campus that doesn't exist, a helpful message should be displayed
 - [ ] Whenever a component needs to wait for data to load from the server, a "loading" message should be displayed until the data is available
-- [ ] Overall, the app is spectacularly styled and visually stunning
+- [x] Overall, the app is spectacularly styled and visually stunning
 
 </details>
 

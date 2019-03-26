@@ -26,7 +26,7 @@ const Student = db.define('students', {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: '/images/placeholder.png' //TODO
+    defaultValue: null
   },
   gpa: {
     type: Sequelize.FLOAT,
@@ -40,6 +40,14 @@ const Student = db.define('students', {
         }
       }
     }
+  }
+});
+
+Student.beforeValidate(student => {
+  if (!student.imageUrl) {
+    student.imageUrl = `https://robohash.org/${student.firstName}${
+      student.lastName
+    }`;
   }
 });
 

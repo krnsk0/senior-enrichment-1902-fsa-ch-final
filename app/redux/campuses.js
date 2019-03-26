@@ -32,7 +32,7 @@ export const fetchCampuses = () => {
 export const addCampusAsync = campus => {
   return async dispatch => {
     try {
-      const { data } = await axios.post('/api/campuses/add', campus);
+      const { data } = await axios.post('/api/campuses/', campus);
       // console.log('data', data);
       // TODO: handle validation errors
       dispatch(addCampus(data));

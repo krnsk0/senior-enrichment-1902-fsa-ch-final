@@ -11,7 +11,7 @@ const Campus = db.define('campuses', {
   },
   imageUrl: {
     type: Sequelize.STRING,
-    defaultValue: '/images/placeholder.png' //TODO
+    defaultValue: null
   },
   address: {
     type: Sequelize.STRING,
@@ -22,6 +22,16 @@ const Campus = db.define('campuses', {
   },
   description: {
     type: Sequelize.TEXT
+  }
+});
+
+// add a random campus image if there isn't one
+const randomInt = length => {
+  return Math.floor(Math.random() * length);
+};
+Campus.beforeValidate(campus => {
+  if (!campus.imageUrl) {
+    campus.imageUrl = `/images/${randomInt(10) + 1}.png`;
   }
 });
 

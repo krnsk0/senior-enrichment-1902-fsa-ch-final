@@ -3,6 +3,7 @@ import axios from 'axios';
 // action types
 const SET_STUDENTS = 'SET_STUDENTS';
 const ADD_STUDENT = 'ADD_STUDENTS';
+const DELETE_STUDENT = 'DELETE_STUDENT';
 
 // action creators
 export const setStudents = students => {
@@ -20,7 +21,7 @@ export const addStudent = student => {
 export const addStudentAsync = student => {
   return async dispatch => {
     try {
-      const { data } = await axios.post('/api/students/add', student);
+      const { data } = await axios.post('/api/students/', student);
       // console.log('data', data);
       // TODO: handle validation errors
       dispatch(addStudent(data));

@@ -12,18 +12,31 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.post('/add', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const { dataValues } = await Student.create({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      gpa: req.body.gpa,
-      imageUrl: `https://robohash.org/${req.body.firstName}${req.body.lastName}`
+      gpa: req.body.gpa
     });
     // console.log('server side result of Studnet.create', dataValues);
     // TODO: handle failed valuation
     res.json(dataValues);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.delete('/:studentId', async (req, res, next) => {
+  try {
+    const result = await Student.destroy({
+      where: {
+        id: req.params.studentId
+      }
+    });
+    // TODO: handle failed destruction
+    res.status(202).send('');
   } catch (error) {
     next(error);
   }

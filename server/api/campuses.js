@@ -3,10 +3,6 @@
 const router = require('express').Router();
 const Campus = require('../db/campus');
 
-const randomInt = length => {
-  return Math.floor(Math.random() * length);
-};
-
 router.get('/', async (req, res, next) => {
   try {
     const allCampuses = await Campus.findAll();
@@ -16,13 +12,12 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.post('/add', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const { dataValues } = await Campus.create({
       name: req.body.name,
       address: req.body.address,
-      description: req.body.description,
-      imageUrl: `/images/${randomInt(10) + 1}.png`
+      description: req.body.description
     });
     // console.log('sever side result of Campus.create', dataValues);
     // TODO: handle failed validation
@@ -38,6 +33,20 @@ router.get('/:campusId', async (req, res, next) => {
       include: 'students'
     });
     res.json(oneCampusWithStudents);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.delete('/:campusId', async (req, res, next) => {
+  try {
+    const result = await Campus.destroy({
+      where: {
+        id: req.params.campusId
+      }
+    });
+    // TODO: handle failed destruction
+    res.status(202).send('');
   } catch (error) {
     next(error);
   }
