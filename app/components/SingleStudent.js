@@ -23,7 +23,7 @@ class disconnectedSingleStudent extends React.Component {
     const studentName = student.firstName + ' ' + student.lastName;
     return (
       <div>
-        {!this.props.selectedCampus.id ? (
+        {!this.props.selectedStudent.id ? (
           <div className="sub-nav loading">Loading...</div>
         ) : (
           <div>

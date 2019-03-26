@@ -1,4 +1,3 @@
-restyle add student / add campus as button
 conditional rendering on edit/delete links
 fix planet image render styling on the single campus view 
 
