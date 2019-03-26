@@ -52,12 +52,20 @@ class disconnectedSingleCampus extends React.Component {
             </div>
           </div>
         </div>
-        <div className="small-card-container student">
-          {campus.students.length === 0
-            ? 'No students assigned to this campus'
-            : campus.students.map(student => {
-                return <SmallStudentCard student={student} key={student.id} />;
-              })}
+
+        <div>
+          {campus.students.length === 0 ? (
+            <div className="sub-nav">No students assigned to this campus</div>
+          ) : (
+            <div>
+              <div className="sub-nav">Students at {campus.name}:</div>
+              <div className="small-card-container student">
+                {campus.students.map(student => (
+                  <SmallStudentCard student={student} key={student.id} />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );

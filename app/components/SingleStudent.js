@@ -53,11 +53,17 @@ class disconnectedSingleStudent extends React.Component {
             </div>
           </div>
         </div>
-        <div className="small-card-container campus">
+
+        <div>
           {student.campusId === null ? (
-            'This student not assigned to a campus'
+            <div className="sub-nav">This student not assigned to a campus</div>
           ) : (
-            <SmallCampusCard campus={student.campus} />
+            <div>
+              <div className="sub-nav">This student attends:</div>
+              <div className="small-card-container campus">
+                <SmallCampusCard campus={student.campus} />
+              </div>
+            </div>
           )}
         </div>
       </div>
