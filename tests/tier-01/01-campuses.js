@@ -31,7 +31,7 @@ import { AllCampuses } from '../../app/components/AllCampuses';
 
 describe('Tier One: Campuses', () => {
   describe('<AllCampuses /> component', () => {
-    // fails after splitting SmallCampusCard subcomponent as per Tom's second law
+    // fails after splitting SmallCampusCard subcomponent, disabling
     xit('renders the campuses passed in as props', () => {
       const wrapper = shallow(
         <AllCampuses
