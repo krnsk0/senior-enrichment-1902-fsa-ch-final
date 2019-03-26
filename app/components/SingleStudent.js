@@ -8,7 +8,7 @@ import SmallCampusCard from './SmallCampusCard';
 class disconnectedSingleStudent extends React.Component {
   componentDidMount() {
     const { studentId } = this.props.match.params;
-    this.props.fetchSingleStudent(studentId);
+    this.props.fetchSingleStudent(studentId, this.props.history);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -79,7 +79,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSingleStudent: studentId => dispatch(fetchSingleStudent(studentId)),
+    fetchSingleStudent: (studentId, history) =>
+      dispatch(fetchSingleStudent(studentId, history)),
     deleteStudentAsync: (studentId, history, redirectPath) =>
       dispatch(deleteStudentAsync(studentId, history, redirectPath))
   };

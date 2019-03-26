@@ -1,6 +1,7 @@
+can you get rid of exact in routes
 fix background image location
-If a user attempts to access a page that doesn't exist (ex. `/cafeteria`), a helpful "not found" message should be displayed
 loading message
+restyle add student / add campus as button
 conditional rendering on edit/delete links
 
 

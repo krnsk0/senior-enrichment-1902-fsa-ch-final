@@ -13,13 +13,17 @@ export const setSingleStudent = student => {
 };
 
 // thunks
-export const fetchSingleStudent = studentId => {
+export const fetchSingleStudent = (studentId, history) => {
   return async dispatch => {
     try {
       const { data } = await axios.get(`/api/students/${studentId}`);
       dispatch(setSingleStudent(data));
     } catch (err) {
-      console.log('Something went wrong getting a single student', err);
+      if (err.response.status === 500) {
+        history.push('/404');
+      } else {
+        console.log('Something went wrong getting a single campus', err);
+      }
     }
   };
 };

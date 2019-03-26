@@ -47,6 +47,7 @@ router.get('/:studentId', async (req, res, next) => {
     const oneStudent = await Student.findById(req.params.studentId, {
       include: 'campus'
     });
+    if (oneStudent === null) throw new Error('record not found');
     res.json(oneStudent);
   } catch (error) {
     next(error);

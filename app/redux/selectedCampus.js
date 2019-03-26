@@ -13,13 +13,17 @@ export const setSingleCampus = campus => {
 };
 
 // thunks
-export const fetchSingleCampus = campusId => {
+export const fetchSingleCampus = (campusId, history) => {
   return async dispatch => {
     try {
       const { data } = await axios.get(`/api/campuses/${campusId}`);
       dispatch(setSingleCampus(data));
     } catch (err) {
-      console.log('Something went wrong getting a single campus', err);
+      if (err.response.status === 500) {
+        history.push('/404');
+      } else {
+        console.log('Something went wrong getting a single campus', err);
+      }
     }
   };
 };
