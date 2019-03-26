@@ -23,7 +23,7 @@ class DisconnectedAddStudent extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.addStudentAsync(this.state);
+    this.props.addStudentAsync(this.state, this.props.history);
   }
 
   render() {
@@ -79,7 +79,8 @@ class DisconnectedAddStudent extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addStudentAsync: student => dispatch(addStudentAsync(student))
+    addStudentAsync: (student, history) =>
+      dispatch(addStudentAsync(student, history))
   };
 };
 

@@ -37,13 +37,14 @@ export const fetchStudents = () => {
   };
 };
 
-export const addStudentAsync = student => {
+export const addStudentAsync = (student, history) => {
   return async dispatch => {
     try {
       const { data } = await axios.post('/api/students/', student);
       // console.log('data', data);
       // TODO: handle validation errors
       dispatch(addStudent(data));
+      history.push(`/students/${data.id}`);
     } catch (err) {
       console.log('Something went wrong adding a student', err);
     }

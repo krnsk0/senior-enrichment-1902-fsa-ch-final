@@ -36,13 +36,14 @@ export const fetchCampuses = () => {
     }
   };
 };
-export const addCampusAsync = campus => {
+export const addCampusAsync = (campus, history, redirectPath) => {
   return async dispatch => {
     try {
       const { data } = await axios.post('/api/campuses/', campus);
       // console.log('data', data);
       // TODO: handle validation errors
       dispatch(addCampus(data));
+      history.push(`/campuses/${data.id}`);
     } catch (err) {
       console.log('Something went wrong adding a campus', err);
     }

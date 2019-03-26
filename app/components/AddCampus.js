@@ -22,7 +22,7 @@ class DisconnectedAddCampus extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.addCampusAsync(this.state);
+    this.props.addCampusAsync(this.state, this.props.history);
   }
 
   render() {
@@ -67,7 +67,8 @@ class DisconnectedAddCampus extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    addCampusAsync: campus => dispatch(addCampusAsync(campus))
+    addCampusAsync: (campus, history) =>
+      dispatch(addCampusAsync(campus, history))
   };
 };
 
