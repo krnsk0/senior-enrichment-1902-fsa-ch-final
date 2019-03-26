@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleCampus } from '../redux/selectedCampus';
 import { Link } from 'react-router-dom';
+import SmallStudentCard from './SmallStudentCard';
 
 class disconnectedSingleCampus extends React.Component {
   componentDidMount() {
@@ -43,12 +44,7 @@ class disconnectedSingleCampus extends React.Component {
           {campus.students.length === 0
             ? 'No students assigned to this campus'
             : campus.students.map(student => {
-                const studentName = student.firstName + ' ' + student.lastName;
-                return (
-                  <div key={student.id}>
-                    <Link to={`/students/${student.id}`}>{studentName}</Link>
-                  </div>
-                );
+                return <SmallStudentCard student={student} key={student.id} />;
               })}
         </div>
       </div>
