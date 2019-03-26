@@ -45,6 +45,14 @@ nav {
 nav a {
   color: skyblue;
 }
+.nav-link button {
+  background-color: rgb(73, 73, 157);
+  color: white;
+  font-size: 25px;
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px 15px 5px 15px;
+}
 
 /* CARD DISPLAY */
 .small-card-container {

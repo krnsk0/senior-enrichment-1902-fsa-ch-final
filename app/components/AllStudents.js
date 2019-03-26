@@ -2,13 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SmallStudentCard from './SmallStudentCard';
 import { deleteStudentAsync } from '../redux/students';
-import { Link } from 'react-router-dom';
 
 class disconnectedAllStudents extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
-    console.log(props);
   }
 
   handleDelete(evt, studentId) {
@@ -25,7 +23,12 @@ class disconnectedAllStudents extends React.Component {
           <div>
             <div className="sub-nav">
               <span className="nav-link">
-                [<Link to="/students/add">Add New Student</Link>]
+                <button
+                  onClick={() => this.props.history.push('/students/add')}
+                  type="button"
+                >
+                  Add New Student
+                </button>
               </span>
             </div>
             <div className="small-card-container student">
