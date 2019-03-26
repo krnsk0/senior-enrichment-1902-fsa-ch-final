@@ -182,7 +182,7 @@ const randomCampusFactory = () => {
   const description = `${sentences.pop()} ${sentences.pop()} ${sentences.pop()}`;
   return {
     name: `${campusNamesFirst.pop()} ${campusNamesSecond.pop()} ${campusNamesThird.pop()}`.trim(),
-    imageUrl: `/planets/${planetImageIndices.pop()}.png`,
+    imageUrl: `/images/${planetImageIndices.pop()}.png`,
     address,
     description
   };
