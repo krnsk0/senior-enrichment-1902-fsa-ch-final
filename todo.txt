@@ -1,0 +1,9 @@
+disable broken tests
+conditional rendering on edit/delete links
+
+
+
+FINAL TODOS
+remove comments
+remove //todos
+consider getting the tests you wrote to pass 
