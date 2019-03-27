@@ -17,7 +17,7 @@ const SmallStudentCard = props => {
         <div className="small-card-links-container student">
           <span>
             [
-            <Link to={`/studnets/${student.id}/edit`} className="edit">
+            <Link to={`/students/${student.id}/edit`} className="edit">
               edit
             </Link>
             ]
