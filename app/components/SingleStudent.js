@@ -20,7 +20,6 @@ class disconnectedSingleStudent extends React.Component {
   }
 
   handleDelete() {
-    console.log('handling unenroll');
     const studentId = this.props.selectedStudent.id;
     this.props.deleteStudentAsync(studentId, this.props.history, '/students');
   }

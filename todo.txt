@@ -1,17 +1,12 @@
+extract component on select
 
-
-
-add selector to add a campus to a student in a single student view 
-
-
-DEPLOY TODOS
+BEFORE SUBMIT TODOS
 remove unnecessary comments
 remove unnecessary console logs
 
-
-
-
 VIDEO OUTLINE 
+EXPLAIN SEEDING
+	start with blank db
 
 CREATE
 	Create new student
@@ -61,6 +56,11 @@ UPDATE
 	pre-populated
 	validation active 
 	redirects
+
+	Unenrolling students from student view 
+	Unenrolling students from campus view 
+
+	
 
 DELETE
 	The same logic applies to delete links as it does to edit links

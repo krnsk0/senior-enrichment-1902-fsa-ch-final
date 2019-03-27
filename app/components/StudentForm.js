@@ -1,4 +1,5 @@
 import React from 'react';
+import CampusSelector from './CampusSelector';
 
 const StudentForm = props => {
   return (
@@ -45,23 +46,11 @@ const StudentForm = props => {
       </div>
 
       <div className="form-block">
-        <label htmlFor="campusId">Campus: </label>
-        <select
-          onChange={props.handleChange}
-          id="campusId"
-          name="campusId"
-          value={props.campusId}
-        >
-          <option value={null}>None</option>
-          {props.campuses.length &&
-            props.campuses.map(campus => {
-              return (
-                <option key={campus.id} value={campus.id}>
-                  {campus.name}
-                </option>
-              );
-            })}
-        </select>
+        <CampusSelector
+          handleChange={props.handleChange}
+          campusId={props.campusId}
+          campuses={props.campuses}
+        />
       </div>
 
       <div className="form-block">
