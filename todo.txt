@@ -1,3 +1,5 @@
+on update form get active campus from redux instead of from props?
+
 conditional rendering on edit/delete links
 fix planet image render styling on the single campus view 
 consistent styling of buttons
@@ -9,3 +11,5 @@ remove comments
 remove //todos
 consider getting the tests you wrote to pass
 break out more components?
+
+

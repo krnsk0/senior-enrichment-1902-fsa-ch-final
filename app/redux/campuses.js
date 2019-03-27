@@ -25,10 +25,10 @@ export const deleteCampus = campusId => {
     campusId
   };
 };
-export const updateCampus = campusId => {
+export const updateCampus = campus => {
   return {
     type: UPDATE_CAMPUS,
-    campusId
+    campus
   };
 };
 
@@ -60,7 +60,6 @@ export const deleteCampusAsync = (campusId, history, redirectPath) => {
   return async dispatch => {
     try {
       const response = await axios.delete(`/api/campuses/${campusId}`);
-      console.log('response from axios delete request in campuses', response);
       // TODO: handle delete failure in some way?
       if (response.status === 202) {
         dispatch(deleteCampus(campusId));
@@ -74,11 +73,11 @@ export const deleteCampusAsync = (campusId, history, redirectPath) => {
 export const updateCampusAsync = (campus, history) => {
   return async dispatch => {
     try {
-      const { data } = await axios.put(`/api/campus/${campus.id}`, campus);
+      const { data } = await axios.put(`/api/campuses/${campus.id}`, campus);
       // console.log('data', data);
       // TODO: handle validation errors
       dispatch(updateCampus(data));
-      history.push(`/campus/${data.id}`);
+      history.push(`/campuses/${data.id}`);
     } catch (err) {
       console.log('Something went wrong updating a campus', err);
     }
@@ -94,6 +93,7 @@ export const campuses = (state = [], action) => {
   } else if (action.type === DELETE_CAMPUS) {
     return [...state.filter(campus => campus.id !== action.campusId)];
   } else if (action.type === UPDATE_CAMPUS) {
+    console.log('*** ACTION ***', action);
     return [
       ...state.map(campus => {
         if (campus.id !== action.campus.id) {

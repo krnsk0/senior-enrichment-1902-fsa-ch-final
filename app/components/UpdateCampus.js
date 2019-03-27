@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addCampusAsync } from '../redux/campuses';
+import { updateCampusAsync } from '../redux/campuses';
 import CampusForm from './CampusForm';
 
 class DisconnectedUpdateCampus extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.name || '',
-      address: this.props.address || '',
-      description: this.props.description || '',
+      name: this.props.name,
+      address: this.props.address,
+      description: this.props.description,
+      id: this.props.id,
       validationMessage: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -37,8 +38,13 @@ class DisconnectedUpdateCampus extends React.Component {
         validationMessage: validationMessageArray.join(' ')
       });
     } else {
-      console.log('HISTORY', this.props);
-      this.props.addCampusAsync(this.state, this.props.history);
+      const updateObject = {
+        name: this.state.name,
+        address: this.state.address,
+        description: this.state.description,
+        id: this.state.id
+      };
+      this.props.updateCampusAsync(updateObject, this.props.history);
     }
   }
 
@@ -59,18 +65,14 @@ class DisconnectedUpdateCampus extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {};
-};
-
 const mapDispatchToProps = dispatch => {
   return {
-    addCampusAsync: (campus, history) =>
-      dispatch(addCampusAsync(campus, history))
+    updateCampusAsync: (campus, history) =>
+      dispatch(updateCampusAsync(campus, history))
   };
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(DisconnectedUpdateCampus);

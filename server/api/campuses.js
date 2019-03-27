@@ -46,7 +46,7 @@ router.put('/:campusId(\\d+)', async (req, res, next) => {
       { where: { id: req.params.campusId } }
     );
     const oneCampusWithStudents = await Campus.findById(req.params.campusId, {
-      include: 'student'
+      include: 'students'
     });
     res.json(oneCampusWithStudents);
   } catch (error) {
