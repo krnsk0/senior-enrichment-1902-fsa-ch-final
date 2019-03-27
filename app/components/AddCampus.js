@@ -49,6 +49,9 @@ class DisconnectedAddCampus extends React.Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           validationMessage={this.state.validationMessage}
+          name={this.state.name}
+          address={this.state.address}
+          description={this.state.description}
         />
       </div>
     );

@@ -10,6 +10,7 @@ const CampusForm = props => {
           type="text"
           id="name"
           name="name"
+          value={props.name}
         />
       </div>
       <div className="form-block">
@@ -19,6 +20,7 @@ const CampusForm = props => {
           type="text"
           id="address"
           name="address"
+          value={props.address}
         />
       </div>
       <div className="form-block">
@@ -27,6 +29,7 @@ const CampusForm = props => {
           onChange={props.handleChange}
           type="text"
           name="description"
+          value={props.description}
         />
       </div>
       <div className="form-block">
