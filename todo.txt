@@ -1,7 +1,6 @@
-validate form
 conditional rendering on edit/delete links
 fix planet image render styling on the single campus view 
-
+update selected campus?
 
 FINAL TODOS
 remove comments

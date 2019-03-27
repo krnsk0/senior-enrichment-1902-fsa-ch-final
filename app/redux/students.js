@@ -4,6 +4,7 @@ import axios from 'axios';
 const SET_STUDENTS = 'SET_STUDENTS';
 const ADD_STUDENT = 'ADD_STUDENTS';
 const DELETE_STUDENT = 'DELETE_STUDENT';
+const UPDATE_STUDENT = 'UPDATE_STUDENT';
 
 // action creators
 export const setStudents = students => {
@@ -24,7 +25,12 @@ export const deleteStudent = studentId => {
     studentId
   };
 };
-
+export const updateStudent = student => {
+  return {
+    type: UPDATE_STUDENT,
+    student
+  };
+};
 // thunks
 export const fetchStudents = () => {
   return async dispatch => {
@@ -67,6 +73,20 @@ export const deleteStudentAsync = (studentId, history, redirectPath) => {
   };
 };
 
+export const updateStudentAsync = (student, history) => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.put(`/api/students/${student.id}`, student);
+      // console.log('data', data);
+      // TODO: handle validation errors
+      dispatch(updateStudent(data));
+      history.push(`/students/${data.id}`);
+    } catch (err) {
+      console.log('Something went wrong updating a student', err);
+    }
+  };
+};
+
 // reducer
 export const students = (state = [], action) => {
   if (action.type === SET_STUDENTS) {
@@ -75,6 +95,16 @@ export const students = (state = [], action) => {
     return [...state, action.student];
   } else if (action.type === DELETE_STUDENT) {
     return [...state.filter(student => student.id !== action.studentId)];
+  } else if (action.type === UPDATE_STUDENT) {
+    return [
+      ...state.map(student => {
+        if (student.id !== action.student.id) {
+          return student;
+        } else {
+          return action.student;
+        }
+      })
+    ];
   } else {
     return state;
   }

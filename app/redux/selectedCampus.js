@@ -36,12 +36,6 @@ const initialState = { students: [] };
 export const selectedCampus = (state = initialState, action) => {
   if (action.type === SET_SELECTED_CAMPUS) {
     return action.campus;
-  } else if (action.type === DELETE_CAMPUS) {
-    if (state.id === action.campusId) {
-      return initialState;
-    } else {
-      return state;
-    }
   } else {
     return state;
   }

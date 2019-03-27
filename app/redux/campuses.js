@@ -4,6 +4,7 @@ import axios from 'axios';
 const SET_CAMPUSES = 'SET_CAMPUSES';
 const ADD_CAMPUS = 'ADD_CAMPUS';
 const DELETE_CAMPUS = 'DELETE_CAMPUS';
+const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
 
 // action creators
 export const setCampuses = campuses => {
@@ -21,6 +22,12 @@ export const addCampus = campus => {
 export const deleteCampus = campusId => {
   return {
     type: DELETE_CAMPUS,
+    campusId
+  };
+};
+export const updateCampus = campusId => {
+  return {
+    type: UPDATE_CAMPUS,
     campusId
   };
 };
@@ -64,6 +71,19 @@ export const deleteCampusAsync = (campusId, history, redirectPath) => {
     }
   };
 };
+export const updateCampusAsync = (campus, history) => {
+  return async dispatch => {
+    try {
+      const { data } = await axios.put(`/api/campus/${campus.id}`, campus);
+      // console.log('data', data);
+      // TODO: handle validation errors
+      dispatch(updateCampus(data));
+      history.push(`/campus/${data.id}`);
+    } catch (err) {
+      console.log('Something went wrong updating a campus', err);
+    }
+  };
+};
 
 // reducer
 export const campuses = (state = [], action) => {
@@ -73,6 +93,16 @@ export const campuses = (state = [], action) => {
     return [...state, action.campus];
   } else if (action.type === DELETE_CAMPUS) {
     return [...state.filter(campus => campus.id !== action.campusId)];
+  } else if (action.type === UPDATE_CAMPUS) {
+    return [
+      ...state.map(campus => {
+        if (campus.id !== action.campus.id) {
+          return campus;
+        } else {
+          return action.campus;
+        }
+      })
+    ];
   } else {
     return state;
   }
