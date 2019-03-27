@@ -47,8 +47,6 @@ export const addStudentAsync = (student, history) => {
   return async dispatch => {
     try {
       const { data } = await axios.post('/api/students/', student);
-      // console.log('data', data);
-      // TODO: handle validation errors
       dispatch(addStudent(data));
       history.push(`/students/${data.id}`);
     } catch (err) {
@@ -62,7 +60,6 @@ export const deleteStudentAsync = (studentId, history, redirectPath) => {
     try {
       const response = await axios.delete(`/api/students/${studentId}`);
       console.log('response from axios delete request in students', response);
-      // TODO: handle delete failure in some way?
       if (response.status === 202) {
         dispatch(deleteStudent(studentId));
         history.push(redirectPath);
@@ -77,8 +74,6 @@ export const updateStudentAsync = (student, history) => {
   return async dispatch => {
     try {
       const { data } = await axios.put(`/api/students/${student.id}`, student);
-      // console.log('data', data);
-      // TODO: handle validation errors
       dispatch(updateStudent(data));
       history.push(`/students/${data.id}`);
     } catch (err) {

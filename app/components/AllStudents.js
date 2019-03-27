@@ -39,6 +39,7 @@ class disconnectedAllStudents extends React.Component {
                         student={student}
                         key={student.id}
                         handleDelete={this.handleDelete}
+                        displayEditDeleteLinks={true}
                       />
                     );
                   })

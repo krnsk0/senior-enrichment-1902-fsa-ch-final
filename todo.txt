@@ -1,12 +1,13 @@
-remove extra reducer code for update methods on selectedStudent/Campus?
+edit and delete links no longer appear on small student and campus cards in single views 
 
-conditional rendering on edit/delete links
-fix planet image render styling on the single campus view 
-consistent styling of buttons
+form gets initial state from store 
+
+consistently style buttons between pages
+
+fix planet image size styling on the single campus view 
 
 
 FINAL TODOS
-make landing page?
 remove comments
 remove //todos
 consider getting the tests you wrote to pass
