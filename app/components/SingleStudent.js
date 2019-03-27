@@ -54,7 +54,7 @@ class disconnectedSingleStudent extends React.Component {
                       <span>
                         [
                         <Link to={`/students/${student.id}/`} className="edit">
-                          edit
+                          close edit form
                         </Link>
                         ]
                       </span>

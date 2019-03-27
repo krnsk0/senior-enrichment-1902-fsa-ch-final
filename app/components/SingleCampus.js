@@ -47,6 +47,26 @@ class disconnectedSingleCampus extends React.Component {
                     {campus.description}
                   </div>
                   <div className="big-card-links-container campus">
+                    {isEditFormOpen() ? (
+                      <span>
+                        [
+                        <Link to={`/campuses/${campus.id}/`} className="edit">
+                          close edit form
+                        </Link>
+                        ]
+                      </span>
+                    ) : (
+                      <span>
+                        [
+                        <Link
+                          to={`/campuses/${campus.id}/edit`}
+                          className="edit"
+                        >
+                          edit
+                        </Link>
+                        ]
+                      </span>
+                    )}
                     <span>
                       [
                       <Link
