@@ -1,8 +1,7 @@
-edit and delete links on big cards are larger
+
+
 
 form gets initial state from store 
-
-consistently style buttons between pages
 
 fix planet image size styling on the single campus view 
 
