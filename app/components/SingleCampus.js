@@ -9,10 +9,6 @@ import UpdateCampus from './UpdateCampus';
 class disconnectedSingleCampus extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
-    this.state = {
-      editFormOpen: this.props.location.pathname.split('/').pop() === 'edit'
-    };
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -31,6 +27,11 @@ class disconnectedSingleCampus extends React.Component {
 
   render() {
     const campus = this.props.selectedCampus;
+
+    const isEditFormOpen = () => {
+      return this.props.location.pathname.split('/').pop() === 'edit';
+    };
+
     return (
       <div>
         {!this.props.selectedCampus.id ? (
@@ -49,13 +50,27 @@ class disconnectedSingleCampus extends React.Component {
                     {campus.description}
                   </div>
                   <div className="big-card-links-container campus">
-                    <span>
-                      [
-                      <Link to={`/campuses/${campus.id}/edit`} className="edit">
-                        edit
-                      </Link>
-                      ]
-                    </span>
+                    {isEditFormOpen() ? (
+                      <span>
+                        [
+                        <Link to={`/campuses/${campus.id}/`} className="edit">
+                          edit
+                        </Link>
+                        ]
+                      </span>
+                    ) : (
+                      <span>
+                        [
+                        <Link
+                          to={`/campuses/${campus.id}/edit`}
+                          className="edit"
+                        >
+                          edit
+                        </Link>
+                        ]
+                      </span>
+                    )}
+
                     <span>
                       [
                       <Link
@@ -71,7 +86,7 @@ class disconnectedSingleCampus extends React.Component {
                 </div>
               </div>
             </div>
-            {this.state.editFormOpen && <UpdateCampus />}
+            {isEditFormOpen() && <UpdateCampus />}
             <div>
               {campus.students.length === 0 ? (
                 <div className="sub-nav">
