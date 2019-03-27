@@ -19,8 +19,6 @@ router.post('/', async (req, res, next) => {
       address: req.body.address,
       description: req.body.description
     });
-    // console.log('sever side result of Campus.create', dataValues);
-    // TODO: handle failed validation
     res.json(dataValues);
   } catch (error) {
     next(error);
@@ -35,8 +33,22 @@ router.delete('/:campusId(\\d+)', async (req, res, next) => {
         id: req.params.campusId
       }
     });
-    // TODO: handle failed destruction
     res.status(202).send('');
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.put('/:campusId(\\d+)', async (req, res, next) => {
+  try {
+    await Campus.update(
+      { ...req.body },
+      { where: { id: req.params.campusId } }
+    );
+    const oneCampusWithStudents = await Campus.findById(req.params.campusId, {
+      include: 'student'
+    });
+    res.json(oneCampusWithStudents);
   } catch (error) {
     next(error);
   }

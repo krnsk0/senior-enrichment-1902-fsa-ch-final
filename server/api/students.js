@@ -20,8 +20,6 @@ router.post('/', async (req, res, next) => {
       email: req.body.email,
       gpa: req.body.gpa
     });
-    // console.log('server side result of Studnet.create', dataValues);
-    // TODO: handle failed valuation
     res.json(dataValues);
   } catch (error) {
     next(error);
@@ -35,8 +33,22 @@ router.delete('/:studentId(\\d+)', async (req, res, next) => {
         id: req.params.studentId
       }
     });
-    // TODO: handle failed destruction
     res.status(202).send('');
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.put('/:studentId(\\d+)', async (req, res, next) => {
+  try {
+    await Student.update(
+      { ...req.body },
+      { where: { id: req.params.studentId } }
+    );
+    const oneStudent = await Student.findById(req.params.studentId, {
+      include: 'campus'
+    });
+    res.json(oneStudent);
   } catch (error) {
     next(error);
   }
