@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleCampus } from '../redux/selectedCampus';
 import { deleteCampusAsync } from '../redux/campuses';
-
+import { unenrollStudentAsync } from '../redux/students';
 import SmallStudentCard from './SmallStudentCard';
 import UpdateCampus from './UpdateCampus';
 import BigCampusCard from './BigCampusCard';
@@ -20,14 +20,19 @@ class disconnectedSingleCampus extends React.Component {
     this.props.fetchSingleCampus(campusId, this.props.history);
   }
 
-  handleDelete(evt) {
+  handleDelete() {
     const campusId = this.props.selectedCampus.id;
     this.props.deleteCampusAsync(campusId, this.props.history, '/campuses');
   }
 
-  handleUnenroll(evt) {
+  handleUnenroll(evt, studentId) {
     evt.preventDefault();
-    // TODO
+
+    this.props.unenrollStudentAsync(
+      studentId,
+      this.props.history,
+      `/campuses/${this.props.selectedCampus.id}`
+    );
     console.log('unenrolled!');
   }
 
@@ -93,7 +98,9 @@ const mapDispatchToProps = dispatch => {
     fetchSingleCampus: (campusId, history) =>
       dispatch(fetchSingleCampus(campusId, history)),
     deleteCampusAsync: (campusId, history, redirectPath) =>
-      dispatch(deleteCampusAsync(campusId, history, redirectPath))
+      dispatch(deleteCampusAsync(campusId, history, redirectPath)),
+    unenrollStudentAsync: (studentId, history, redirectPath) =>
+      dispatch(unenrollStudentAsync(studentId, history, redirectPath))
   };
 };
 export default connect(

@@ -5,6 +5,7 @@ const SET_STUDENTS = 'SET_STUDENTS';
 const ADD_STUDENT = 'ADD_STUDENTS';
 const DELETE_STUDENT = 'DELETE_STUDENT';
 const UPDATE_STUDENT = 'UPDATE_STUDENT';
+const UNENROLL_STUDENT = 'UNENROLL_STUDENT';
 
 // action creators
 export const setStudents = students => {
@@ -29,6 +30,12 @@ export const updateStudent = student => {
   return {
     type: UPDATE_STUDENT,
     student
+  };
+};
+export const unenrollStudent = studentId => {
+  return {
+    type: UNENROLL_STUDENT,
+    studentId
   };
 };
 // thunks
@@ -78,6 +85,20 @@ export const updateStudentAsync = (student, history) => {
       history.push(`/students/${data.id}`);
     } catch (err) {
       console.log('Something went wrong updating a student', err);
+    }
+  };
+};
+
+export const unenrollStudentAsync = (studentId, history, redirectPath) => {
+  return async dispatch => {
+    try {
+      await axios.put(`/api/students/${studentId}`, {
+        campusId: null
+      });
+      dispatch(unenrollStudent(studentId));
+      history.push(redirectPath);
+    } catch (err) {
+      console.log('Something went wrong unenrolling a student', err);
     }
   };
 };

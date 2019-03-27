@@ -3,6 +3,7 @@ import axios from 'axios';
 // action types
 const SET_SELECTED_CAMPUS = 'SET_SELECTED_CAMPUS';
 const UPDATE_CAMPUS = 'UPDATE_CAMPUS';
+const UNENROLL_STUDENT = 'UNENROLL_STUDENT';
 
 // action creators
 export const setSingleCampus = campus => {
@@ -42,6 +43,13 @@ export const selectedCampus = (state = initialState, action) => {
     } else {
       return state;
     }
+  } else if (action.type === UNENROLL_STUDENT) {
+    return {
+      ...state,
+      students: state.students.filter(
+        student => student.id !== action.studentId
+      )
+    };
   } else {
     return state;
   }

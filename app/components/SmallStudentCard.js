@@ -40,7 +40,7 @@ const SmallStudentCard = props => {
             [
             <Link
               to=""
-              className="delete"
+              className="unenroll"
               onClick={evt => props.handleUnenroll(evt, student.id)}
             >
               unenroll
