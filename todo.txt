@@ -1,5 +1,3 @@
-add selector for assigned campus to add student form
-
 add link to remove a student from a campus in a single campus view 
  
 add link to remove a campus from a student in a single student view 
@@ -14,3 +12,71 @@ remove unnecessary console logs
 
 
 
+VIDEO OUTLINE 
+
+CREATE
+	Create new student
+	Validation messages
+	Special email validation 
+	Selecting campus
+	Redirect
+
+	Create new campus
+	Validation messages
+	Redirect
+
+READ
+	All campuses view
+	Single campus view 
+	Can see students of a campus 
+	If no student...
+
+	All students view 
+	Single student view 
+	Can see campus for a student 
+	If no campus...
+	
+
+
+UPDATE 
+	Getting to campus update pages 
+	Links present on all campus view
+	And on single campus view 
+	But not on campus cards under our student view 
+
+
+	Getting to student update pages
+	Links present on all student view 
+	And on single student view 
+	But not on student cards under a campus view 
+
+
+	Why? Because we need to display links there to change relations between campuses and students 
+
+	Updating student
+	Pre-populated
+	validation active 
+	redirects
+
+	Updating campus
+	pre-populated
+	validation active 
+	redirects
+
+DELETE
+	The same logic applies to delete links as it does to edit links
+	
+	We can delete students from the all students view 
+	Refreshes without making a get request
+
+	We can delete from the all campus view
+	Refreshes without making a get request
+
+	Deleting from the single student view 
+	Refreshes without making a get request
+
+	Deleting from the single campus view
+	Refreshes without making a get request 
+
+404 page
+505 page
