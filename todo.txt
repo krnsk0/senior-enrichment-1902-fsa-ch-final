@@ -1,10 +1,8 @@
 
 
-
-form gets initial state from store 
-
 fix planet image size styling on the single campus view 
 
+abstract away form validation from add and update
 
 FINAL TODOS
 remove comments

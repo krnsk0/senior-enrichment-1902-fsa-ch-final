@@ -82,6 +82,16 @@ class DisconnectedUpdateStudent extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    firstName: state.selectedStudent.firstName,
+    lastName: state.selectedStudent.lastName,
+    email: state.selectedStudent.email,
+    gpa: state.selectedStudent.gpa,
+    id: state.selectedStudent.id
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     updateStudentAsync: (student, history) =>
@@ -90,6 +100,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(DisconnectedUpdateStudent);

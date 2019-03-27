@@ -87,10 +87,6 @@ class disconnectedSingleStudent extends React.Component {
             </div>
             {isEditFormOpen() && (
               <UpdateStudent
-                firstName={this.props.selectedStudent.firstName}
-                lastName={this.props.selectedStudent.lastName}
-                email={this.props.selectedStudent.email}
-                gpa={this.props.selectedStudent.gpa}
                 history={this.props.history}
                 id={this.props.selectedStudent.id}
               />

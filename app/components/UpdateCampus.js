@@ -65,6 +65,15 @@ class DisconnectedUpdateCampus extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    name: state.selectedCampus.name,
+    address: state.selectedCampus.address,
+    description: state.selectedCampus.description,
+    id: state.selectedCampus.id
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     updateCampusAsync: (campus, history) =>
@@ -73,6 +82,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(DisconnectedUpdateCampus);
