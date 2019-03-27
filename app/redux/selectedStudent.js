@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // action types
 const SET_SELECTED_STUDENT = 'SET_SELECTED_STUDENT';
-const DELETE_STUDENT = 'DELETE_STUDENT';
+const UPDATE_STUDENT = 'UPDATE_STUDENT';
 
 // action creators
 export const setSingleStudent = student => {
@@ -36,6 +36,12 @@ const initialState = { campus: {} };
 export const selectedStudent = (state = initialState, action) => {
   if (action.type === SET_SELECTED_STUDENT) {
     return action.student;
+  } else if (action.type === UPDATE_STUDENT) {
+    if (state.id === action.student.id) {
+      return action.student;
+    } else {
+      return state;
+    }
   } else {
     return state;
   }

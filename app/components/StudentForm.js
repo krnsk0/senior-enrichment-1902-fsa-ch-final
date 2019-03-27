@@ -10,6 +10,7 @@ const StudentForm = props => {
           type="text"
           id="firstName"
           name="firstName"
+          value={props.firstName}
         />
       </div>
       <div className="form-block">
@@ -19,6 +20,7 @@ const StudentForm = props => {
           type="text"
           id="lastName"
           name="lastName"
+          value={props.lastName}
         />
       </div>
       <div className="form-block">
@@ -28,6 +30,7 @@ const StudentForm = props => {
           type="text"
           id="email"
           name="email"
+          value={props.email}
         />
       </div>
       <div className="form-block">
@@ -37,6 +40,7 @@ const StudentForm = props => {
           type="number"
           id="gpa"
           name="gpa"
+          value={props.gpa}
         />
       </div>
 

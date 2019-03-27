@@ -4,6 +4,7 @@ import { fetchSingleStudent } from '../redux/selectedStudent';
 import { deleteStudentAsync } from '../redux/students';
 import { Link } from 'react-router-dom';
 import SmallCampusCard from './SmallCampusCard';
+import UpdateStudent from './UpdateStudent';
 
 class disconnectedSingleStudent extends React.Component {
   constructor(props) {
@@ -25,6 +26,9 @@ class disconnectedSingleStudent extends React.Component {
   render() {
     const student = this.props.selectedStudent;
     const studentName = student.firstName + ' ' + student.lastName;
+    const isEditFormOpen = () => {
+      return this.props.location.pathname.split('/').pop() === 'edit';
+    };
     return (
       <div>
         {!this.props.selectedStudent.id ? (
@@ -46,13 +50,26 @@ class disconnectedSingleStudent extends React.Component {
                     GPA: {student.gpa}
                   </div>
                   <div className="big-card-links-container student">
-                    <span>
-                      [
-                      <Link to={`/student/${student.id}/edit`} className="edit">
-                        edit
-                      </Link>
-                      ]
-                    </span>
+                    {isEditFormOpen() ? (
+                      <span>
+                        [
+                        <Link to={`/students/${student.id}/`} className="edit">
+                          edit
+                        </Link>
+                        ]
+                      </span>
+                    ) : (
+                      <span>
+                        [
+                        <Link
+                          to={`/students/${student.id}/edit`}
+                          className="edit"
+                        >
+                          edit
+                        </Link>
+                        ]
+                      </span>
+                    )}
                     <span>
                       [
                       <Link
@@ -68,7 +85,16 @@ class disconnectedSingleStudent extends React.Component {
                 </div>
               </div>
             </div>
-
+            {isEditFormOpen() && (
+              <UpdateStudent
+                firstName={this.props.selectedStudent.firstName}
+                lastName={this.props.selectedStudent.lastName}
+                email={this.props.selectedStudent.email}
+                gpa={this.props.selectedStudent.gpa}
+                history={this.props.history}
+                id={this.props.selectedStudent.id}
+              />
+            )}
             <div>
               {student.campusId === null ? (
                 <div className="sub-nav">
