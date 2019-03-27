@@ -58,8 +58,8 @@ class DisconnectedAddStudent extends React.Component {
   render() {
     return (
       <div className="big-card form">
+        <div className="big-card-label">Add New Student</div>
         <form onSubmit={this.handleSubmit}>
-          <div className="big-card-label">Add New Student</div>
           <div className="form-block">
             <label htmlFor="firstName">First Name:</label>
             <input
