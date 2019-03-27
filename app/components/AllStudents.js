@@ -7,6 +7,7 @@ class disconnectedAllStudents extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    console.log('PROPS', props);
   }
 
   handleDelete(evt, studentId) {
@@ -17,7 +18,7 @@ class disconnectedAllStudents extends React.Component {
   render() {
     return (
       <div>
-        {this.props.students.length === 0 ? (
+        {this.props.students.loaded === false ? (
           <div className="sub-nav loading">Loading...</div>
         ) : (
           <div>
@@ -32,18 +33,20 @@ class disconnectedAllStudents extends React.Component {
               </span>
             </div>
             <div className="small-card-container student">
-              {this.props.students.length
-                ? this.props.students.map(student => {
-                    return (
-                      <SmallStudentCard
-                        student={student}
-                        key={student.id}
-                        handleDelete={this.handleDelete}
-                        displayEditDeleteLinks={true}
-                      />
-                    );
-                  })
-                : 'No Students'}
+              {this.props.students.length ? (
+                this.props.students.map(student => {
+                  return (
+                    <SmallStudentCard
+                      student={student}
+                      key={student.id}
+                      handleDelete={this.handleDelete}
+                      displayEditDeleteLinks={true}
+                    />
+                  );
+                })
+              ) : (
+                <div className="sub-nav loading">No Students Found</div>
+              )}
             </div>
           </div>
         )}

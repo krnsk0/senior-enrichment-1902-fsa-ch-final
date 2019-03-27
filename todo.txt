@@ -1,5 +1,7 @@
 distinguish between loading and empty 
 
+typo in student small card edit link??
+
 dry things up
 
 break out more components

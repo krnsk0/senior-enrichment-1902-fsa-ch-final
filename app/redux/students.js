@@ -83,9 +83,13 @@ export const updateStudentAsync = (student, history) => {
 };
 
 // reducer
-export const students = (state = [], action) => {
+const initialState = [];
+initialState.loaded = false;
+export const students = (state = initialState, action) => {
   if (action.type === SET_STUDENTS) {
-    return action.students;
+    const newState = action.students;
+    newState.loaded = true;
+    return newState;
   } else if (action.type === ADD_STUDENT) {
     return [...state, action.student];
   } else if (action.type === DELETE_STUDENT) {

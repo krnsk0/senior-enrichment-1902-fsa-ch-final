@@ -6,6 +6,7 @@ import SmallCampusCard from './SmallCampusCard';
 class disconnectedAllCampuses extends React.Component {
   constructor(props) {
     super(props);
+    console.log('PROPS', props);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
@@ -17,7 +18,7 @@ class disconnectedAllCampuses extends React.Component {
   render() {
     return (
       <div>
-        {this.props.campuses.length === 0 ? (
+        {this.props.campuses.loaded === false ? (
           <div className="sub-nav loading">Loading...</div>
         ) : (
           <div>
@@ -32,18 +33,20 @@ class disconnectedAllCampuses extends React.Component {
               </span>
             </div>
             <div className="small-card-container campus">
-              {this.props.campuses.length
-                ? this.props.campuses.map(campus => {
-                    return (
-                      <SmallCampusCard
-                        campus={campus}
-                        key={campus.id}
-                        handleDelete={this.handleDelete}
-                        displayEditDeleteLinks={true}
-                      />
-                    );
-                  })
-                : 'No Campuses'}
+              {this.props.campuses.length ? (
+                this.props.campuses.map(campus => {
+                  return (
+                    <SmallCampusCard
+                      campus={campus}
+                      key={campus.id}
+                      handleDelete={this.handleDelete}
+                      displayEditDeleteLinks={true}
+                    />
+                  );
+                })
+              ) : (
+                <div className="sub-nav loading">No Campuses Found</div>
+              )}
             </div>
           </div>
         )}

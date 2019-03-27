@@ -80,9 +80,13 @@ export const updateCampusAsync = (campus, history) => {
 };
 
 // reducer
-export const campuses = (state = [], action) => {
+const initialState = [];
+initialState.loaded = false;
+export const campuses = (state = initialState, action) => {
   if (action.type === SET_CAMPUSES) {
-    return action.campuses;
+    const newState = action.campuses;
+    newState.loaded = true;
+    return newState;
   } else if (action.type === ADD_CAMPUS) {
     return [...state, action.campus];
   } else if (action.type === DELETE_CAMPUS) {
