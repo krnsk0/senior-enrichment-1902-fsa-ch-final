@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 import React from 'react';
 import { connect } from 'react-redux';
 import { addStudentAsync } from '../redux/students';
@@ -9,7 +10,8 @@ class DisconnectedAddStudent extends React.Component {
       firstName: '',
       lastName: '',
       email: '',
-      gpa: 0.0
+      gpa: 0.0,
+      validationMessage: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +25,34 @@ class DisconnectedAddStudent extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.addStudentAsync(this.state, this.props.history);
+    let validationMessageArray = [];
+    if (this.state.firstName === '') {
+      validationMessageArray.push('First name cannot be blank.');
+    }
+    if (this.state.lastName === '') {
+      validationMessageArray.push('Last name cannot be blank.');
+    }
+    if (this.state.email === '') {
+      validationMessageArray.push('Email cannot be blank.');
+    }
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(this.state.email.toLowerCase())) {
+      validationMessageArray.push('Email must be valid.');
+    }
+    if (this.state.gpa === '') {
+      validationMessageArray.push('GPA cannot be blank.');
+    }
+    if (this.state.gpa < 0 || this.state.gpa > 4) {
+      validationMessageArray.push('GPA must be between 0.0 and 4.0.');
+    }
+
+    if (validationMessageArray.length) {
+      this.setState({
+        validationMessage: validationMessageArray.join(' ')
+      });
+    } else {
+      this.props.addStudentAsync(this.state, this.props.history);
+    }
   }
 
   render() {
@@ -62,7 +91,7 @@ class DisconnectedAddStudent extends React.Component {
             <label htmlFor="gpa">Grade Point Average:</label>
             <input
               onChange={this.handleChange}
-              type="text"
+              type="number"
               id="gpa"
               name="gpa"
             />
@@ -71,6 +100,11 @@ class DisconnectedAddStudent extends React.Component {
           <div className="form-block">
             <button type="submit">Submit</button>
           </div>
+          {this.state.validationMessage && (
+            <div className="validation-message">
+              {this.state.validationMessage}
+            </div>
+          )}
         </form>
       </div>
     );

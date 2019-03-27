@@ -23,7 +23,6 @@ class DisconnectedAddCampus extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-
     let validationMessageArray = [];
     if (this.state.name === '') {
       validationMessageArray.push('Name cannot be blank.');
