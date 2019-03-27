@@ -26,7 +26,6 @@ router.post('/', async (req, res, next) => {
 });
 
 router.delete('/:campusId(\\d+)', async (req, res, next) => {
-  console.log('in delete route');
   try {
     const result = await Campus.destroy({
       where: {

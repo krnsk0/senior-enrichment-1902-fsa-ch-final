@@ -1,14 +1,10 @@
-
-typo in student small card edit link??
-
 dry things up
-
 break out more components
 
-FINAL TODOS
-remove comments
-remove //todos
-consider getting the tests you wrote to pass
+DEPLOY TODOS
+remove unnecessary comments
+remove unnecessary console logs
+
 
 
 

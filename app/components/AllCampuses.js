@@ -6,7 +6,6 @@ import SmallCampusCard from './SmallCampusCard';
 class disconnectedAllCampuses extends React.Component {
   constructor(props) {
     super(props);
-    console.log('PROPS', props);
     this.handleDelete = this.handleDelete.bind(this);
   }
 
