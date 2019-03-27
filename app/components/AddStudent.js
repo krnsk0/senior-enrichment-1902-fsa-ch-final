@@ -13,6 +13,7 @@ class DisconnectedAddStudent extends React.Component {
       lastName: '',
       email: '',
       gpa: 0.0,
+      campusId: null,
       validationMessage: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -47,11 +48,18 @@ class DisconnectedAddStudent extends React.Component {
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
           validationMessage={this.state.validationMessage}
+          campuses={this.props.campuses}
         />
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    campuses: state.campuses
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -61,6 +69,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(DisconnectedAddStudent);

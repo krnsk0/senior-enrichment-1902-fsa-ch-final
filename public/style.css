@@ -200,6 +200,13 @@ form input {
   display: block;
   margin: auto;
 }
+form select {
+  color: black;
+  font-size: 22px;
+  width: 275px;
+  display: block;
+  margin: auto;
+}
 form textarea {
   color: black;
   font-size: 16px;

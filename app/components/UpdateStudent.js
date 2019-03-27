@@ -14,6 +14,7 @@ class DisconnectedUpdateStudent extends React.Component {
       email: this.props.email,
       gpa: this.props.gpa,
       id: this.props.id,
+      campusId: this.props.campusId,
       validationMessage: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -41,7 +42,8 @@ class DisconnectedUpdateStudent extends React.Component {
         lastName: this.state.lastName,
         email: this.state.email,
         gpa: this.state.gpa,
-        id: this.state.id
+        id: this.state.id,
+        campusId: this.state.campusId
       };
       this.props.updateStudentAsync(updateObject, this.props.history);
     }
@@ -59,6 +61,8 @@ class DisconnectedUpdateStudent extends React.Component {
           lastName={this.state.lastName}
           email={this.state.email}
           gpa={this.state.gpa}
+          campusId={this.state.campusId}
+          campuses={this.props.campuses}
         />
       </div>
     );
@@ -71,7 +75,9 @@ const mapStateToProps = state => {
     lastName: state.selectedStudent.lastName,
     email: state.selectedStudent.email,
     gpa: state.selectedStudent.gpa,
-    id: state.selectedStudent.id
+    id: state.selectedStudent.id,
+    campusId: state.selectedStudent.campusId,
+    campuses: state.campuses
   };
 };
 

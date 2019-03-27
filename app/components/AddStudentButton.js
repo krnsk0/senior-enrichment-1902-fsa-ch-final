@@ -5,7 +5,7 @@ const AddStudentButton = props => {
     <div className="sub-nav">
       <span className="nav-link">
         <button
-          onClick={() => props.history.push('/campuses/add')}
+          onClick={() => props.history.push('/students/add')}
           type="button"
         >
           Add New Student

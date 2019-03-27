@@ -18,7 +18,8 @@ router.post('/', async (req, res, next) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
-      gpa: req.body.gpa
+      gpa: req.body.gpa,
+      campusId: req.body.campusId
     });
     res.json(dataValues);
   } catch (error) {
