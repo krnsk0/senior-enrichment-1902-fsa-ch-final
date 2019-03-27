@@ -1,6 +1,5 @@
-add link to remove a student from a campus in a single campus view 
- 
-add link to remove a campus from a student in a single student view 
+
+
 
 add selector to add a campus to a student in a single student view 
 

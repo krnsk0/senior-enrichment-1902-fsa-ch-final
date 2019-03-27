@@ -27,7 +27,6 @@ class disconnectedSingleCampus extends React.Component {
 
   handleUnenroll(evt, studentId) {
     evt.preventDefault();
-
     this.props.unenrollStudentAsync(
       studentId,
       this.props.history,

@@ -10,7 +10,7 @@ const SmallCampusCard = props => {
         <div className="small-card-label campus">{campus.name}</div>
         <img className="small-card-image campus" src={campus.imageUrl} />
       </Link>
-      {displayEditDeleteLinks && (
+      {displayEditDeleteLinks ? (
         <div className="small-card-links-container campus">
           <span>
             [
@@ -27,6 +27,20 @@ const SmallCampusCard = props => {
               onClick={evt => props.handleDelete(evt, campus.id)}
             >
               delete
+            </Link>
+            ]
+          </span>
+        </div>
+      ) : (
+        <div className="small-card-links-container campus">
+          <span>
+            [
+            <Link
+              to=""
+              className="unenroll"
+              onClick={evt => props.handleUnenroll(evt)}
+            >
+              unenroll
             </Link>
             ]
           </span>

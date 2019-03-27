@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleStudent } from '../redux/selectedStudent';
-import { deleteStudentAsync } from '../redux/students';
+import { deleteStudentAsync, unenrollStudentAsync } from '../redux/students';
 import SmallCampusCard from './SmallCampusCard';
 import UpdateStudent from './UpdateStudent';
 import BigStudentCard from './BigStudentCard';
@@ -10,6 +10,7 @@ class disconnectedSingleStudent extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleUnenroll = this.handleUnenroll.bind(this);
     this.isEditFormOpen = this.isEditFormOpen.bind(this);
   }
 
@@ -19,8 +20,20 @@ class disconnectedSingleStudent extends React.Component {
   }
 
   handleDelete() {
+    console.log('handling unenroll');
     const studentId = this.props.selectedStudent.id;
     this.props.deleteStudentAsync(studentId, this.props.history, '/students');
+  }
+
+  handleUnenroll(evt) {
+    evt.preventDefault();
+    const studentId = this.props.selectedStudent.id;
+    this.props.unenrollStudentAsync(
+      studentId,
+      this.props.history,
+      `/students/${studentId}`
+    );
+    console.log('unenrolled!');
   }
 
   isEditFormOpen() {
@@ -58,7 +71,10 @@ class disconnectedSingleStudent extends React.Component {
                 <div>
                   <div className="sub-nav">This student attends:</div>
                   <div className="small-card-container campus">
-                    <SmallCampusCard campus={student.campus} />
+                    <SmallCampusCard
+                      campus={student.campus}
+                      handleUnenroll={this.handleUnenroll}
+                    />
                   </div>
                 </div>
               )}
@@ -81,7 +97,9 @@ const mapDispatchToProps = dispatch => {
     fetchSingleStudent: (studentId, history) =>
       dispatch(fetchSingleStudent(studentId, history)),
     deleteStudentAsync: (studentId, history, redirectPath) =>
-      dispatch(deleteStudentAsync(studentId, history, redirectPath))
+      dispatch(deleteStudentAsync(studentId, history, redirectPath)),
+    unenrollStudentAsync: (studentId, history, redirectPath) =>
+      dispatch(unenrollStudentAsync(studentId, history, redirectPath))
   };
 };
 export default connect(
