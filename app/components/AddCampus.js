@@ -8,7 +8,8 @@ class DisconnectedAddCampus extends React.Component {
     this.state = {
       name: '',
       address: '',
-      description: ''
+      description: '',
+      validationMessage: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +23,22 @@ class DisconnectedAddCampus extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.addCampusAsync(this.state, this.props.history);
+
+    let validationMessageArray = [];
+    if (this.state.name === '') {
+      validationMessageArray.push('Name cannot be blank.');
+    }
+    if (this.state.address === '') {
+      validationMessageArray.push('Address cannot be blank.');
+    }
+
+    if (validationMessageArray.length) {
+      this.setState({
+        validationMessage: validationMessageArray.join(' ')
+      });
+    } else {
+      this.props.addCampusAsync(this.state, this.props.history);
+    }
   }
 
   render() {
@@ -59,6 +75,11 @@ class DisconnectedAddCampus extends React.Component {
           <div className="form-block">
             <button type="submit">Submit</button>
           </div>
+          {this.state.validationMessage && (
+            <div className="validation-message">
+              {this.state.validationMessage}
+            </div>
+          )}
         </form>
       </div>
     );
