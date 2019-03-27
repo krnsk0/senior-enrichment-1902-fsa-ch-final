@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SmallStudentCard from './SmallStudentCard';
 import { deleteStudentAsync } from '../redux/students';
+import AddStudentButton from './AddStudentButton';
 
 class disconnectedAllStudents extends React.Component {
   constructor(props) {
@@ -21,16 +22,7 @@ class disconnectedAllStudents extends React.Component {
           <div className="sub-nav loading">Loading...</div>
         ) : (
           <div>
-            <div className="sub-nav">
-              <span className="nav-link">
-                <button
-                  onClick={() => this.props.history.push('/students/add')}
-                  type="button"
-                >
-                  Add New Student
-                </button>
-              </span>
-            </div>
+            <AddStudentButton history={this.props.history} />
             <div className="small-card-container student">
               {this.props.students.length ? (
                 this.props.students.map(student => {

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { deleteCampusAsync } from '../redux/campuses';
 import SmallCampusCard from './SmallCampusCard';
+import AddCampusButton from './AddCampusButton';
 
 class disconnectedAllCampuses extends React.Component {
   constructor(props) {
@@ -21,16 +22,7 @@ class disconnectedAllCampuses extends React.Component {
           <div className="sub-nav loading">Loading...</div>
         ) : (
           <div>
-            <div className="sub-nav">
-              <span className="nav-link">
-                <button
-                  onClick={() => this.props.history.push('/campuses/add')}
-                  type="button"
-                >
-                  Add New Campus
-                </button>
-              </span>
-            </div>
+            <AddCampusButton history={this.props.history} />
             <div className="small-card-container campus">
               {this.props.campuses.length ? (
                 this.props.campuses.map(campus => {
