@@ -4,8 +4,18 @@ import { fetchSingleCampus } from '../redux/selectedCampus';
 import { deleteCampusAsync } from '../redux/campuses';
 import { Link } from 'react-router-dom';
 import SmallStudentCard from './SmallStudentCard';
+import UpdateCampus from './UpdateCampus';
 
 class disconnectedSingleCampus extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      editFormOpen: props.editFormFlag || false
+    };
+    this.handleDelete = this.handleDelete.bind(this);
+    this.toggleEditForm = this.toggleEditForm.bind(this);
+  }
+
   componentDidMount() {
     const { campusId } = this.props.match.params;
     this.props.fetchSingleCampus(campusId, this.props.history);
@@ -17,6 +27,13 @@ class disconnectedSingleCampus extends React.Component {
     evt.preventDefault();
     const campusId = this.props.selectedCampus.id;
     this.props.deleteCampusAsync(campusId, this.props.history, '/campuses');
+  }
+
+  toggleEditForm(evt) {
+    evt.preventDefault();
+    this.setState({
+      editFormOpen: !this.state.editFormOpen
+    });
   }
 
   render() {
@@ -41,7 +58,11 @@ class disconnectedSingleCampus extends React.Component {
                   <div className="big-card-links-container campus">
                     <span>
                       [
-                      <Link to={`/campuses/${campus.id}/edit`} className="edit">
+                      <Link
+                        to=""
+                        className="edit"
+                        onClick={this.toggleEditForm}
+                      >
                         edit
                       </Link>
                       ]
@@ -61,7 +82,7 @@ class disconnectedSingleCampus extends React.Component {
                 </div>
               </div>
             </div>
-
+            {this.state.editFormOpen && <UpdateCampus />}
             <div>
               {campus.students.length === 0 ? (
                 <div className="sub-nav">
