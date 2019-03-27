@@ -37,7 +37,12 @@ class disconnectedSingleCampus extends React.Component {
           <div>
             <div className="big-card campus">
               <div className="big-card-container campus">
-                <img src={campus.imageUrl} className="big-card-image campus" />
+                <div className="big-card-image-container campus">
+                  <img
+                    src={campus.imageUrl}
+                    className="big-card-image campus"
+                  />
+                </div>
                 <div className="big-card-text-container campus">
                   <div className="big-card-label campus">{campus.name}</div>
                   <div className="big-card-address campus">

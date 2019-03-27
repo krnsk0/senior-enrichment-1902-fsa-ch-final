@@ -96,7 +96,7 @@ img.not-found {
   text-align: center;
 }
 .small-card-label.campus {
-  font-size: 22px;
+  font-size: 19px;
 }
 .small-card-label.student {
   font-size: 20px;
@@ -142,13 +142,19 @@ img.not-found {
 }
 .big-card-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+}
+.big-card-image-container.campus {
+  flex: 1;
+}
+.big-card-image-container.student {
+  flex: 1;
 }
 .big-card-image.campus {
-  height: 200px;
+  height: 100%;
 }
-.big-card-image.student {
-  height: 200px;
+.big-card-text-container {
+  flex: 2;
 }
 .big-card-label {
   font-size: 32px;

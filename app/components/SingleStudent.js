@@ -37,10 +37,12 @@ class disconnectedSingleStudent extends React.Component {
           <div>
             <div className="big-card student">
               <div className="big-card-container student">
-                <img
-                  src={student.imageUrl}
-                  className="big-card-image student"
-                />
+                <div className="big-card-image-container student">
+                  <img
+                    src={student.imageUrl}
+                    className="big-card-image student"
+                  />
+                </div>
                 <div className="big-card-text-container student">
                   <div className="big-card-label student">{studentName}</div>
                   <div className="big-card-description campus">

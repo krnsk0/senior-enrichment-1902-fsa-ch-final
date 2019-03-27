@@ -1,5 +1,4 @@
 
-
 fix planet image size styling on the single campus view 
 
 abstract away form validation from add and update
