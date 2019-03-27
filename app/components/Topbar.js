@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 const Topbar = props => {
   return (
     <nav>
-      <img id="hamilton-image" src="/images/header.png" />
+      <Link to="/campuses">
+        <img id="hamilton-image" src="/images/header.png" />
+      </Link>
       <div className="header-text">Interplanetary Academy of Javascript</div>
       <div className="nav-link-container">
         <span className="nav-link">
