@@ -6,10 +6,14 @@ import { Link } from 'react-router-dom';
 import SmallCampusCard from './SmallCampusCard';
 
 class disconnectedSingleStudent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
   componentDidMount() {
     const { studentId } = this.props.match.params;
     this.props.fetchSingleStudent(studentId, this.props.history);
-    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleDelete(evt) {

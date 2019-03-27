@@ -15,7 +15,6 @@ class disconnectedSingleCampus extends React.Component {
   componentDidMount() {
     const { campusId } = this.props.match.params;
     this.props.fetchSingleCampus(campusId, this.props.history);
-    this.handleDelete = this.handleDelete.bind(this);
     console.log(this.props);
   }
 

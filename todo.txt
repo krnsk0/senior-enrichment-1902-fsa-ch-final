@@ -1,5 +1,6 @@
 conditional rendering on edit/delete links
 fix planet image render styling on the single campus view 
+consistent styling of buttons
 
 
 FINAL TODOS
