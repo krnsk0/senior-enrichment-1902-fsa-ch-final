@@ -1,12 +1,15 @@
-
-fix planet image size styling on the single campus view 
-
 abstract away form validation from add and update
+
+change color on warning message to pink
+
+dry things up
+
+break out more components
 
 FINAL TODOS
 remove comments
 remove //todos
 consider getting the tests you wrote to pass
-break out more components?
+
 
 

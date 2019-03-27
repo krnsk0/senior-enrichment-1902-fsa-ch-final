@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateCampusAsync } from '../redux/campuses';
 import CampusForm from './CampusForm';
+import validateCampusForm from '../utils/validateCampusForm';
 
 class DisconnectedUpdateCampus extends React.Component {
   constructor(props) {
@@ -25,13 +26,8 @@ class DisconnectedUpdateCampus extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    let validationMessageArray = [];
-    if (this.state.name === '') {
-      validationMessageArray.push('Name cannot be blank.');
-    }
-    if (this.state.address === '') {
-      validationMessageArray.push('Address cannot be blank.');
-    }
+
+    const validationMessageArray = validateCampusForm(this.state);
 
     if (validationMessageArray.length) {
       this.setState({
