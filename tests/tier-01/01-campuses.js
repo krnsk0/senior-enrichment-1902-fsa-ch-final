@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-import enzyme, { shallow, mount } from 'enzyme';
+import enzyme, { shallow } from 'enzyme';
 import sinon from 'sinon';
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';

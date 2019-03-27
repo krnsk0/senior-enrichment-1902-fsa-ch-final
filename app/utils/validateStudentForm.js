@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const validateStudentForm = state => {
   let validationMessageArray = [];
   if (state.firstName === '') {

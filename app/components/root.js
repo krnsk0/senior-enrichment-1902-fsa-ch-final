@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchStudents } from '../redux/students';
 import { fetchCampuses } from '../redux/campuses';
-import { Route, Link, withRouter, Switch } from 'react-router-dom';
+import { Route, withRouter, Switch } from 'react-router-dom';
 import AllStudents from './AllStudents';
 import AllCampuses from './AllCampuses';
 import SingleCampus from './SingleCampus';

@@ -1,6 +1,4 @@
-abstract away form validation from add and update
-
-change color on warning message to pink
+distinguish between loading and empty 
 
 dry things up
 
