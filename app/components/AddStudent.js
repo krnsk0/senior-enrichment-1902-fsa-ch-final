@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addStudentAsync } from '../redux/students';
+import StudentForm from './StudentForm';
 
 class DisconnectedAddStudent extends React.Component {
   constructor(props) {
@@ -59,53 +60,11 @@ class DisconnectedAddStudent extends React.Component {
     return (
       <div className="big-card form">
         <div className="big-card-label">Add New Student</div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-block">
-            <label htmlFor="firstName">First Name:</label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              id="firstName"
-              name="firstName"
-            />
-          </div>
-          <div className="form-block">
-            <label htmlFor="lastName">Last Name:</label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              id="lastName"
-              name="lastName"
-            />
-          </div>
-          <div className="form-block">
-            <label htmlFor="email">Email:</label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              id="email"
-              name="email"
-            />
-          </div>
-          <div className="form-block">
-            <label htmlFor="gpa">Grade Point Average:</label>
-            <input
-              onChange={this.handleChange}
-              type="number"
-              id="gpa"
-              name="gpa"
-            />
-          </div>
-
-          <div className="form-block">
-            <button type="submit">Submit</button>
-          </div>
-          {this.state.validationMessage && (
-            <div className="validation-message">
-              {this.state.validationMessage}
-            </div>
-          )}
-        </form>
+        <StudentForm
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          validationMessage={this.state.validationMessage}
+        />
       </div>
     );
   }

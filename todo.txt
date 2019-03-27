@@ -1,8 +1,11 @@
+add homepage link to topbar
 conditional rendering on edit/delete links
 fix planet image render styling on the single campus view 
 update selected campus?
 
+
 FINAL TODOS
+make landing page?
 remove comments
 remove //todos
 consider getting the tests you wrote to pass

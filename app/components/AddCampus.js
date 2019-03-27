@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { addCampusAsync } from '../redux/campuses';
+import CampusForm from './CampusForm';
 
 class DisconnectedAddCampus extends React.Component {
   constructor(props) {
@@ -44,42 +45,11 @@ class DisconnectedAddCampus extends React.Component {
     return (
       <div className="big-card form">
         <div className="big-card-label">Add New Campus</div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-block">
-            <label htmlFor="name">Campus Name:</label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              id="name"
-              name="name"
-            />
-          </div>
-          <div className="form-block">
-            <label htmlFor="name">Campus Address:</label>
-            <input
-              onChange={this.handleChange}
-              type="text"
-              id="address"
-              name="address"
-            />
-          </div>
-          <div className="form-block">
-            <label htmlFor="name">Description:</label>
-            <textarea
-              onChange={this.handleChange}
-              type="text"
-              name="description"
-            />
-          </div>
-          <div className="form-block">
-            <button type="submit">Submit</button>
-          </div>
-          {this.state.validationMessage && (
-            <div className="validation-message">
-              {this.state.validationMessage}
-            </div>
-          )}
-        </form>
+        <CampusForm
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          validationMessage={this.state.validationMessage}
+        />
       </div>
     );
   }
