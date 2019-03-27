@@ -19,7 +19,6 @@ class disconnectedSingleStudent extends React.Component {
   }
 
   handleDelete(evt) {
-    evt.preventDefault();
     const studentId = this.props.selectedStudent.id;
     this.props.deleteStudentAsync(studentId, this.props.history, '/students');
   }

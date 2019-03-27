@@ -11,6 +11,7 @@ class disconnectedSingleCampus extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleUnenroll = this.handleUnenroll.bind(this);
     this.isEditFormOpen = this.isEditFormOpen.bind(this);
   }
 
@@ -20,9 +21,14 @@ class disconnectedSingleCampus extends React.Component {
   }
 
   handleDelete(evt) {
-    evt.preventDefault();
     const campusId = this.props.selectedCampus.id;
     this.props.deleteCampusAsync(campusId, this.props.history, '/campuses');
+  }
+
+  handleUnenroll(evt) {
+    evt.preventDefault();
+    // TODO
+    console.log('unenrolled!');
   }
 
   isEditFormOpen() {
@@ -59,7 +65,11 @@ class disconnectedSingleCampus extends React.Component {
                   <div className="sub-nav">Students at {campus.name}:</div>
                   <div className="small-card-container student">
                     {campus.students.map(student => (
-                      <SmallStudentCard student={student} key={student.id} />
+                      <SmallStudentCard
+                        student={student}
+                        key={student.id}
+                        handleUnenroll={this.handleUnenroll}
+                      />
                     ))}
                   </div>
                 </div>

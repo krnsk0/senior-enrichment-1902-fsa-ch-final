@@ -130,6 +130,12 @@ img.not-found {
   justify-content: space-between;
   margin-bottom: 5px;
 }
+.small-card-links-container.center {
+  width: 145px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
 .small-card-links-container span {
   font-size: 16px;
 }
