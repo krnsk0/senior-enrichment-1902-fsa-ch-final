@@ -153,6 +153,9 @@ img.not-found {
 .big-card-image.campus {
   height: 100%;
 }
+.big-card-image.student {
+  height: 200px;
+}
 .big-card-text-container {
   flex: 2;
 }

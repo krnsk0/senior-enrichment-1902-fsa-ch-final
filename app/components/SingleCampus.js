@@ -2,14 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSingleCampus } from '../redux/selectedCampus';
 import { deleteCampusAsync } from '../redux/campuses';
-import { Link } from 'react-router-dom';
+
 import SmallStudentCard from './SmallStudentCard';
 import UpdateCampus from './UpdateCampus';
+import BigCampusCard from './BigCampusCard';
 
 class disconnectedSingleCampus extends React.Component {
   constructor(props) {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
+    this.isEditFormOpen = this.isEditFormOpen.bind(this);
   }
 
   componentDidMount() {
@@ -23,11 +25,12 @@ class disconnectedSingleCampus extends React.Component {
     this.props.deleteCampusAsync(campusId, this.props.history, '/campuses');
   }
 
+  isEditFormOpen() {
+    return this.props.location.pathname.split('/').pop() === 'edit';
+  }
+
   render() {
     const campus = this.props.selectedCampus;
-    const isEditFormOpen = () => {
-      return this.props.location.pathname.split('/').pop() === 'edit';
-    };
 
     return (
       <div>
@@ -35,59 +38,12 @@ class disconnectedSingleCampus extends React.Component {
           <div className="sub-nav loading">Loading...</div>
         ) : (
           <div>
-            <div className="big-card campus">
-              <div className="big-card-container campus">
-                <div className="big-card-image-container campus">
-                  <img
-                    src={campus.imageUrl}
-                    className="big-card-image campus"
-                  />
-                </div>
-                <div className="big-card-text-container campus">
-                  <div className="big-card-label campus">{campus.name}</div>
-                  <div className="big-card-address campus">
-                    Address: {campus.address}
-                  </div>
-                  <div className="big-card-description campus">
-                    {campus.description}
-                  </div>
-                  <div className="big-card-links-container campus">
-                    {isEditFormOpen() ? (
-                      <span>
-                        [
-                        <Link to={`/campuses/${campus.id}/`} className="edit">
-                          close edit form
-                        </Link>
-                        ]
-                      </span>
-                    ) : (
-                      <span>
-                        [
-                        <Link
-                          to={`/campuses/${campus.id}/edit`}
-                          className="edit"
-                        >
-                          edit
-                        </Link>
-                        ]
-                      </span>
-                    )}
-                    <span>
-                      [
-                      <Link
-                        to=""
-                        className="delete"
-                        onClick={this.handleDelete}
-                      >
-                        delete
-                      </Link>
-                      ]
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {isEditFormOpen() && (
+            <BigCampusCard
+              campus={campus}
+              isEditFormOpen={this.isEditFormOpen}
+              handleDelete={this.handleDelete}
+            />
+            {this.isEditFormOpen() && (
               <UpdateCampus
                 history={this.props.history}
                 id={this.props.selectedCampus.id}
