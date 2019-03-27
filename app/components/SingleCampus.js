@@ -9,11 +9,11 @@ import UpdateCampus from './UpdateCampus';
 class disconnectedSingleCampus extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props);
     this.state = {
-      editFormOpen: props.editFormFlag || false
+      editFormOpen: this.props.location.pathname.split('/').pop() === 'edit'
     };
     this.handleDelete = this.handleDelete.bind(this);
-    this.toggleEditForm = this.toggleEditForm.bind(this);
   }
 
   componentDidMount() {
@@ -27,13 +27,6 @@ class disconnectedSingleCampus extends React.Component {
     evt.preventDefault();
     const campusId = this.props.selectedCampus.id;
     this.props.deleteCampusAsync(campusId, this.props.history, '/campuses');
-  }
-
-  toggleEditForm(evt) {
-    evt.preventDefault();
-    this.setState({
-      editFormOpen: !this.state.editFormOpen
-    });
   }
 
   render() {
@@ -58,11 +51,7 @@ class disconnectedSingleCampus extends React.Component {
                   <div className="big-card-links-container campus">
                     <span>
                       [
-                      <Link
-                        to=""
-                        className="edit"
-                        onClick={this.toggleEditForm}
-                      >
+                      <Link to={`/campuses/${campus.id}/edit`} className="edit">
                         edit
                       </Link>
                       ]

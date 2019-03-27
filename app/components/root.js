@@ -29,12 +29,8 @@ class disconnectedRoot extends React.Component {
             <Route exact path="/campuses/add" component={AddCampus} />
             <Route exact path="/students" component={AllStudents} />
             <Route exact path="/students/add" component={AddStudent} />
-            <Route exact path="/campuses/:campusId" component={SingleCampus} />
-            <Route
-              exact
-              path="/students/:studentId"
-              component={SingleStudent}
-            />
+            <Route path="/campuses/:campusId" component={SingleCampus} />
+            <Route path="/students/:studentId" component={SingleStudent} />
             <Route exact path="/500" component={NotFound500} />
             <Route component={NotFound404} />
           </Switch>
