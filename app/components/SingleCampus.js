@@ -15,7 +15,6 @@ class disconnectedSingleCampus extends React.Component {
   componentDidMount() {
     const { campusId } = this.props.match.params;
     this.props.fetchSingleCampus(campusId, this.props.history);
-    console.log(this.props);
   }
 
   handleDelete(evt) {
@@ -26,7 +25,6 @@ class disconnectedSingleCampus extends React.Component {
 
   render() {
     const campus = this.props.selectedCampus;
-
     const isEditFormOpen = () => {
       return this.props.location.pathname.split('/').pop() === 'edit';
     };
@@ -85,7 +83,13 @@ class disconnectedSingleCampus extends React.Component {
                 </div>
               </div>
             </div>
-            {isEditFormOpen() && <UpdateCampus />}
+            {isEditFormOpen() && (
+              <UpdateCampus
+                name={this.props.selectedCampus.name}
+                address={this.props.selectedCampus.address}
+                description={this.props.selectedCampus.description}
+              />
+            )}
             <div>
               {campus.students.length === 0 ? (
                 <div className="sub-nav">

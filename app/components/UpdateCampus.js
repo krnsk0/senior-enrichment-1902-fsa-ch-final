@@ -7,11 +7,13 @@ class DisconnectedUpdateCampus extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      address: '',
-      description: '',
+      name: this.props.name || '',
+      address: this.props.address || '',
+      description: this.props.description || '',
       validationMessage: ''
     };
+    console.log('PROPS', this.props);
+    console.log('STATE', this.state);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
