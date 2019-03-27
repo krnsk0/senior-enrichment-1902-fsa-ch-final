@@ -88,6 +88,7 @@ class disconnectedSingleCampus extends React.Component {
                 name={this.props.selectedCampus.name}
                 address={this.props.selectedCampus.address}
                 description={this.props.selectedCampus.description}
+                history={this.props.history}
               />
             )}
             <div>

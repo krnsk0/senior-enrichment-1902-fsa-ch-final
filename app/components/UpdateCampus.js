@@ -12,8 +12,6 @@ class DisconnectedUpdateCampus extends React.Component {
       description: this.props.description || '',
       validationMessage: ''
     };
-    console.log('PROPS', this.props);
-    console.log('STATE', this.state);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -39,6 +37,7 @@ class DisconnectedUpdateCampus extends React.Component {
         validationMessage: validationMessageArray.join(' ')
       });
     } else {
+      console.log('HISTORY', this.props);
       this.props.addCampusAsync(this.state, this.props.history);
     }
   }
