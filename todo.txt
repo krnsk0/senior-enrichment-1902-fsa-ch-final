@@ -1,8 +1,10 @@
-added a default campus in the selector and handle it in the thunk for enrollment
- 
+do not display add campus component when edit window open on student view 
+
 move action creators/thunks to different files
 
 add number validation to GPA form
+
+displaying student with no campus?
 
 BEFORE SUBMIT TODOS
 remove unnecessary comments

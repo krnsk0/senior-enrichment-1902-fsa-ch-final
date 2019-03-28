@@ -116,12 +116,14 @@ export const enrollStudentAsync = (
   redirectPath
 ) => {
   return async dispatch => {
+    // eslint-disable-next-line eqeqeq
+    campusId = campusId == 0 ? null : campusId;
     try {
       await axios.put(`/api/students/${studentId}`, {
         campusId
       });
       dispatch(enrollStudent(studentId, campusId, campusObject));
-      // history.push(redirectPath);
+      history.push(redirectPath);
     } catch (err) {
       console.log('Something went wrong enrolling a student', err);
     }
