@@ -32,7 +32,6 @@ class disconnectedSingleCampus extends React.Component {
       this.props.history,
       `/campuses/${this.props.selectedCampus.id}`
     );
-    console.log('unenrolled!');
   }
 
   isEditFormOpen() {

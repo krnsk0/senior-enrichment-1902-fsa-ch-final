@@ -6,7 +6,7 @@ import { enrollStudentAsync } from '../redux/students';
 class DisconnectedEnrollmentController extends React.Component {
   constructor(props) {
     super(props);
-    console.log('*** CAMPUSES ***', this.props.campuses);
+    '*** CAMPUSES ***', this.props.campuses;
     this.state = {
       campusId: this.props.campuses.length && this.props.campuses[0].id
     };

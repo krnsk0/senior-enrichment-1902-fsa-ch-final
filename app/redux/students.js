@@ -74,7 +74,6 @@ export const deleteStudentAsync = (studentId, history, redirectPath) => {
   return async dispatch => {
     try {
       const response = await axios.delete(`/api/students/${studentId}`);
-      console.log('response from axios delete request in students', response);
       if (response.status === 202) {
         dispatch(deleteStudent(studentId));
         history.push(redirectPath);
