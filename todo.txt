@@ -1,4 +1,10 @@
-extract component on select
+Student pages show selector for enrolling in a campus 
+
+null prop error, debug add or update when null is selected
+
+move action creators/thunks to different files
+
+add number validation to GPA form
 
 BEFORE SUBMIT TODOS
 remove unnecessary comments
@@ -59,6 +65,8 @@ UPDATE
 
 	Unenrolling students from student view 
 	Unenrolling students from campus view 
+
+	Enrolling students from the student view via the selector
 
 	
 

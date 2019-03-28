@@ -62,7 +62,7 @@ class disconnectedSingleCampus extends React.Component {
             <div>
               {campus.students.length === 0 ? (
                 <div className="sub-nav">
-                  No students assigned to this campus
+                  No students assigned to this campus.
                 </div>
               ) : (
                 <div>

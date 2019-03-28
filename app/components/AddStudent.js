@@ -13,7 +13,7 @@ class DisconnectedAddStudent extends React.Component {
       lastName: '',
       email: '',
       gpa: 0.0,
-      campusId: null,
+      campusId: this.props.campuses[0].id,
       validationMessage: ''
     };
     this.handleChange = this.handleChange.bind(this);

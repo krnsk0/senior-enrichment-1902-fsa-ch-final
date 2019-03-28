@@ -6,7 +6,7 @@ const ADD_STUDENT = 'ADD_STUDENTS';
 const DELETE_STUDENT = 'DELETE_STUDENT';
 const UPDATE_STUDENT = 'UPDATE_STUDENT';
 const UNENROLL_STUDENT = 'UNENROLL_STUDENT';
-
+const ENROLL_STUDENT = 'ENROLL_STUDENT';
 // action creators
 export const setStudents = students => {
   return {
@@ -36,6 +36,14 @@ export const unenrollStudent = studentId => {
   return {
     type: UNENROLL_STUDENT,
     studentId
+  };
+};
+export const enrollStudent = (studentId, campusId, campusObject) => {
+  return {
+    type: ENROLL_STUDENT,
+    studentId,
+    campusId,
+    campusObject
   };
 };
 // thunks
@@ -76,7 +84,6 @@ export const deleteStudentAsync = (studentId, history, redirectPath) => {
     }
   };
 };
-
 export const updateStudentAsync = (student, history) => {
   return async dispatch => {
     try {
@@ -88,7 +95,6 @@ export const updateStudentAsync = (student, history) => {
     }
   };
 };
-
 export const unenrollStudentAsync = (studentId, history, redirectPath) => {
   return async dispatch => {
     try {
@@ -99,6 +105,25 @@ export const unenrollStudentAsync = (studentId, history, redirectPath) => {
       history.push(redirectPath);
     } catch (err) {
       console.log('Something went wrong unenrolling a student', err);
+    }
+  };
+};
+export const enrollStudentAsync = (
+  studentId,
+  campusId,
+  campusObject,
+  history,
+  redirectPath
+) => {
+  return async dispatch => {
+    try {
+      await axios.put(`/api/students/${studentId}`, {
+        campusId
+      });
+      dispatch(enrollStudent(studentId, campusId, campusObject));
+      // history.push(redirectPath);
+    } catch (err) {
+      console.log('Something went wrong enrolling a student', err);
     }
   };
 };
@@ -125,6 +150,11 @@ export const students = (state = initialState, action) => {
         }
       })
     ];
+    // skipping handling some actions here because
+    // it is impossible to view the students leaf of
+    // the state tree without triggering a GET that
+    // syncs with server, so no need to handle them.
+    // Would need to handle if we expanded app more.
   } else {
     return state;
   }

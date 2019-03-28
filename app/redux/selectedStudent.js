@@ -4,6 +4,7 @@ import axios from 'axios';
 const SET_SELECTED_STUDENT = 'SET_SELECTED_STUDENT';
 const UPDATE_STUDENT = 'UPDATE_STUDENT';
 const UNENROLL_STUDENT = 'UNENROLL_STUDENT';
+const ENROLL_STUDENT = 'ENROLL_STUDENT';
 
 // action creators
 export const setSingleStudent = student => {
@@ -48,6 +49,12 @@ export const selectedStudent = (state = initialState, action) => {
       ...state,
       campusId: null,
       campus: {}
+    };
+  } else if (action.type === ENROLL_STUDENT) {
+    return {
+      ...state,
+      campusId: action.campusId,
+      campus: action.campusObject
     };
   } else {
     return state;

@@ -5,6 +5,7 @@ import { deleteStudentAsync, unenrollStudentAsync } from '../redux/students';
 import SmallCampusCard from './SmallCampusCard';
 import UpdateStudent from './UpdateStudent';
 import BigStudentCard from './BigStudentCard';
+import EnrollmentController from './EnrollmentController';
 
 class disconnectedSingleStudent extends React.Component {
   constructor(props) {
@@ -32,7 +33,6 @@ class disconnectedSingleStudent extends React.Component {
       this.props.history,
       `/students/${studentId}`
     );
-    console.log('unenrolled!');
   }
 
   isEditFormOpen() {
@@ -64,7 +64,8 @@ class disconnectedSingleStudent extends React.Component {
             <div>
               {student.campusId === null ? (
                 <div className="sub-nav">
-                  This student not assigned to a campus
+                  This student not assigned to a campus. Assign to a campus:
+                  <EnrollmentController history={this.props.history} />
                 </div>
               ) : (
                 <div>
