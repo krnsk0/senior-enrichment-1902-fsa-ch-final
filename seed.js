@@ -96,7 +96,26 @@ const firstNames = [
   'Ozath',
   'Urko',
   'Iehmit',
-  'Strumme'
+  'Strumme',
+  'Rhea',
+  'Kitty',
+  'Gerry',
+  'Gertrude',
+  'Darlene',
+  'Darryl',
+  'Gwyneth',
+  'Haley',
+  'Jamie',
+  'Janeczka',
+  'Jenny',
+  'Daniel',
+  'Natasha',
+  'Anne',
+  'Chloe',
+  'Chris',
+  'Andrew',
+  'Mikey',
+  'Fluffy'
 ];
 
 const lastNames = [
@@ -132,7 +151,11 @@ const lastNames = [
   'Gixols',
   'Grax',
   'Xzyvxzq',
-  'Starswonk'
+  'Starswonk',
+  'Koerm',
+  'Thunberg',
+  'Mueller',
+  'Harris'
 ];
 
 // thanks to https://www.allegro.cc/iotd/view/2005-08-24
