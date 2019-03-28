@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 /* eslint-disable no-useless-escape */
 const validateStudentForm = state => {
   let validationMessageArray = [];
@@ -18,7 +19,7 @@ const validateStudentForm = state => {
     validationMessageArray.push('GPA cannot be blank.');
   }
   if (state.gpa < 0 || state.gpa > 4) {
-    validationMessageArray.push('GPA must be between 0.0 and 4.0.');
+    validationMessageArray.push('GPA must be a number between 0.0 and 4.0.');
   }
   return validationMessageArray;
 };

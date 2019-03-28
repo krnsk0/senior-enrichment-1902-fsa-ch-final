@@ -38,7 +38,8 @@ const StudentForm = props => {
         <label htmlFor="gpa">Grade Point Average:</label>
         <input
           onChange={props.handleChange}
-          type="text"
+          type="number"
+          step="0.01"
           id="gpa"
           name="gpa"
           value={props.gpa}
