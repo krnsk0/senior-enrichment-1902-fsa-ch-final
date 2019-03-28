@@ -1,7 +1,5 @@
-Student pages show selector for enrolling in a campus 
-
-null prop error, debug add or update when null is selected
-
+added a default campus in the selector and handle it in the thunk for enrollment
+ 
 move action creators/thunks to different files
 
 add number validation to GPA form
