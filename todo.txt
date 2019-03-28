@@ -1,7 +1,4 @@
-
-
-remove unnecessary comments
-
+starting value of selector in student edit?
 
 VIDEO OUTLINE 
 EXPLAIN SEEDING

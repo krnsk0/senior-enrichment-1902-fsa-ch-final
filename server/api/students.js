@@ -19,7 +19,8 @@ router.post('/', async (req, res, next) => {
       lastName: req.body.lastName,
       email: req.body.email,
       gpa: req.body.gpa,
-      campusId: req.body.campusId
+      // eslint-disable-next-line eqeqeq
+      campusId: req.body.campusId == 0 ? null : req.body.campusId
     });
     res.json(dataValues);
   } catch (error) {
