@@ -1,5 +1,3 @@
-starting value of selector in student edit?
-
 VIDEO OUTLINE 
 EXPLAIN SEEDING
 	start with blank db
