@@ -2,16 +2,23 @@ VIDEO OUTLINE
 EXPLAIN SEEDING
 	start with blank db
 
+go through crud, leaving terminal open 
+
 CREATE
+	Create new campus
+		fullstack
+		405 W Superior St, earth
+		A fun and great place
+	Validation messages
+	Redirect, terminal
+
 	Create new student
 	Validation messages
 	Special email validation 
 	Selecting campus
-	Redirect
+	Redirect, terminal
 
-	Create new campus
-	Validation messages
-	Redirect
+	
 
 READ
 	All campuses view
@@ -40,7 +47,6 @@ UPDATE
 	And on single student view 
 	But not on student cards under a campus view 
 
-
 	Why? Because we need to display links there to change relations between campuses and students 
 
 	Updating student
@@ -53,12 +59,11 @@ UPDATE
 	validation active 
 	redirects
 
-	Unenrolling students from student view 
-	Unenrolling students from campus view 
+	Unenrolling students from campus view
 
-	Enrolling students from the student view via the selector
+	Unenrolling students from student view
+	Enrolling students from campus view via selector
 
-	
 
 DELETE
 	The same logic applies to delete links as it does to edit links
