@@ -148,7 +148,7 @@ img.not-found {
 }
 .big-card-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 .big-card-image-container.campus {
   flex: 1;

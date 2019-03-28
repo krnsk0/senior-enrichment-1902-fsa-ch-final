@@ -62,12 +62,13 @@ class disconnectedSingleStudent extends React.Component {
               />
             )}
             <div>
-              {student.campusId === null ? (
+              {student.campusId === null && !this.isEditFormOpen() && (
                 <div className="sub-nav">
                   This student not assigned to a campus. Assign to a campus:
                   <EnrollmentController history={this.props.history} />
                 </div>
-              ) : (
+              )}
+              {student.campusId !== null && !this.isEditFormOpen() && (
                 <div>
                   <div className="sub-nav">This student attends:</div>
                   <div className="small-card-container campus">

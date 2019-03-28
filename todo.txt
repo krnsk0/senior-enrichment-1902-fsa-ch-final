@@ -1,8 +1,6 @@
-do not display add campus component when edit window open on student view 
+ 
 
-move action creators/thunks to different files
-
-add more names
+konami code 
 
 BEFORE SUBMIT TODOS
 remove unnecessary comments
