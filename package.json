@@ -9,7 +9,8 @@
     "build-watch": "webpack -w",
     "test": "NODE_ENV='test' mocha  ./tests --recursive --watch --require babel-polyfill --require babel-register",
     "start": "echo 'Running server for production - developers, use npm run start-dev for development' && node main",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "clear": "node cleardb.js"
   },
   "keywords": [
     "react",
